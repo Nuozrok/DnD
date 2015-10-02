@@ -1,0 +1,10 @@
+player rolls for stats
+persistent player stats and command to view said stats at any time
+player armor and weapons
+dungeon generator with rooms containing encounters, loot, or nothing
+menu
+instructions
+inventory
+experience, leveling up, increasing player stats
+score
+scoreboard
