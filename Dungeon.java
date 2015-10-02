@@ -8,6 +8,8 @@ public class Dungeon {
 
 	// Create First Room
 	public static void Start() {
+	    
+	    // NIK DO YOU EVEN ARRAY I'm pretty sure java arrays need square bracket notation
 		Room firstRoom = new Room();
 		Room rooms(maxRooms);
 		firstRoom.id = 0;
@@ -26,25 +28,37 @@ public class Dungeon {
 			Room currentRoom = new Room();
 			currentRoom.id = roomCount;
 
+            // which direction will the door be (don't forget to check that door isn't already there)
 			switch (RNG.D4()) {
 			case 1:
-				rooms(roomCount - 1).canMoveNorth();
+			    // forward door
+				rooms(roomCount - 1).canMoveNorth() = currentRoom.id;
+				
+				// backwards door
+                currentRoom.canMoveSouth() = rooms(roomCount - 1).id;
 				break;
 			case 2:
-
+                rooms(roomCount - 1).canMoveEast() = currentRoom.id; 
+                
+                currentRoom.canMoveWest() = rooms(roomCount - 1).id;
 				break;
 			case 3:
-
+                rooms(roomCount - 1).canMoveWest() = currentRoom.id;
+                currentRoom.canMoveEast() = rooms(roomCount - 1).id;
+			
 				break;
 			case 4:
-
+                rooms(roomCount - 1).canMoveSouth() = currentRoom.id;  
+			    currentRoom.canMoveNorth() = rooms(roomCount - 1).id;
+			
 				break;
 			}
+			
 		}
 		// 2. pick a room
 		// 3. choose a wall
 		// 4. randomly add a door to the wall, or do not
-		// 5. repeat steps 2 and 3, 3 more times, such that there is at least 1
+		// 5. repeat steps 2 and 3, marxRooms more times, such that there is at least 1
 		// door per room
 		// 6. add a room adjacent to each door, unless a room already exists
 
