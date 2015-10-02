@@ -16,7 +16,7 @@ public class Dungeon {
 	    playerRoom = firstRoom;
 		Room rooms[maxRooms];
 		firstRoom.id = 0;
-		firstRoom = rooms(0);
+		rooms[0] = firstRoom;
 
 	}
 	
