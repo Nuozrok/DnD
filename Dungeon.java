@@ -9,7 +9,7 @@ public class Dungeon {
 	// Create First Room
 	public static void Start() {
 	    
-	    // NIK DO YOU EVEN ARRAY I'm pretty sure java arrays need square bracket notation
+	    // this is commited
 		Room firstRoom = new Room();
 		Room rooms(maxRooms);
 		firstRoom.id = 0;
