@@ -1,3 +1,4 @@
+mana system
 player rolls for stats
 persistent player stats and command to view said stats at any time
 player armor and weapons
