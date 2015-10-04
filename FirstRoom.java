@@ -37,6 +37,8 @@ public class FirstRoom{
                 loop = false;
             }
         }
+        //temporary connection from first room to a fight
+        EnemyEncounter.main(null);
     }    
     public static void RollStats(String race){
         boolean loop = true;

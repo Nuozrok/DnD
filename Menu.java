@@ -11,7 +11,7 @@ public class Menu {
   while (loop1 = true) {
    String response = input.nextLine().toLowerCase();
    if (response.equals("start")) {
-    EnemyEncounter.main(null);
+    FirstRoom.main(null);
     loop1 = false;
    }else{
     System.out.println("Type 'start'");
