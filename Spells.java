@@ -73,13 +73,13 @@ public class Spells {
 	
 	//CanCast?
 	public static void CanCast(){
-		System.out.println("You can cast:");
+		System.out.println("You know how to cast:");
 		System.out.println("====================");
 		if(PlayerStats.INT >= 1){
-			System.out.println("Heal");
+			System.out.println("Heal\t\t5"); //mana cost of 5
 		}
 		if(PlayerStats.INT >= 4){
-			System.out.println("Fireball");
+			System.out.println("Fireball\t7"); //mana cost of 7
 		}
 		System.out.println("====================");
 		System.out.println("Back");
@@ -91,12 +91,22 @@ public class Spells {
 		boolean loop = true;
 		while(loop == true){
 		String response = input.nextLine().toLowerCase();	
-			if(response.equals("heal") && PlayerStats.INT >= 1){
+			if(response.equals("heal") && PlayerStats.INT >= 1 && PlayerStats.MP >= 5){
 				loop = false;
 				Heal();
-			}else if(response.equals("fireball") && PlayerStats.INT >= 4){
+                PlayerStats.MP -= 5;
+			}else if(response.equals("heal") && PlayerStats.INT >= 1 && PlayerStats.MP < 5){
+			    loop = false;
+			    System.out.println("Insufficient mana!");
+			    CanCast();
+			}else if(response.equals("fireball") && PlayerStats.INT >= 4 && PlayerStats.MP >= 7){
 				loop = false;
 				Fireball();
+				PlayerStats.MP -= 7;
+			}else if(response.equals("fireball") && PlayerStats.INT >= 4 && PlayerStats.MP < 7){
+			    loop = false;
+			    System.out.println("Insufficient mana!");
+			    CanCast();	
 			}else if(response.equals("back")){
 				EnemyEncounter.Combat();
 			}else CanCast();

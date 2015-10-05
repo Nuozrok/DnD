@@ -111,7 +111,7 @@ public class EnemyEncounter {
 						System.out.println("The " + enemy + " rolls for damage");
 						System.out.println("The " + enemy + " rolls " + RNG.num);
 						System.out.println("The " + enemy + " deals " + (DMG * 2) + " damage");
-						System.out.println("You have " + PlayerStats.HP + "HP");
+						System.out.println("You have " + PlayerStats.HP + "HP and " + PlayerStats.MP + " MP");
 						// if player dies
 						if (PlayerStats.HP <= 0) {
 							System.out.println("You have been slain!");
@@ -129,7 +129,7 @@ public class EnemyEncounter {
 						System.out.println("The " + enemy + " rolls " + RNG.num);
 						PlayerStats.HP = PlayerStats.HP - DMG;
 						System.out.println("The " + enemy + " deals " + DMG + " damage");
-						System.out.println("You have " + PlayerStats.HP + "HP");
+						System.out.println("You have " + PlayerStats.HP + "HP and " + PlayerStats.MP + " MP");
 						// if player dies
 						if (PlayerStats.HP <= 0) {
 							System.out.println("You have been slain!");
@@ -195,6 +195,7 @@ public class EnemyEncounter {
 	}
 
 	public static void Magic() {
+		System.out.println("You have " +PlayerStats.MP+ "/" +PlayerStats.totalMP+" MP");
 		System.out.println("What would you like to cast?");
 		Spells.CanCast();
 		Spells.Casting();

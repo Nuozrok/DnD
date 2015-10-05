@@ -43,6 +43,8 @@ public class PlayerStats {
 	public static int AC;
 	public static int STR;
 	public static int INT;
+	public static int MP;
+	public static int totalMP;
 	//
 	
 	//Experience

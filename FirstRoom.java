@@ -139,11 +139,13 @@ public class FirstRoom{
 	        PlayerStats.INT = 0;
 	    }
 	    
-	    //Set HP
+	    //Set HP & MP
 	    PlayerStats.HP = 20 + PlayerStats.DEX;
+	    PlayerStats.MP = 20 + PlayerStats.INT;
+	    PlayerStats.totalMP = PlayerStats.MP;
 	    PlayerStats.totalHP = PlayerStats.HP;
         System.out.println("You are a(n) " +race+ " with " +PlayerStats.DEX+ " dexterity, " +PlayerStats.AC
             + " armour class, " +PlayerStats.STR+ " strength, " +PlayerStats.INT+ " intelligence, " 
-            + PlayerStats.totalHP+ " total health.");
+            + PlayerStats.totalHP+ " total health, and " +PlayerStats.totalMP+ " total mana.");
     }
 }
