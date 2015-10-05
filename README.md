@@ -11,8 +11,7 @@ TL;DR
 Need to find out a way to check if an event occured while the program is running something else.
 I looked up multi-threading over the summer, but couldnt get that to work.
 
-
-
+Update: I think I figured out a way to do it.
 
 
 (to do) don't forget to check that the door isn't already assigned

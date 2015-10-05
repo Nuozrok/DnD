@@ -12,6 +12,9 @@ public class EnemyEncounter {
 		Initiative();
 		Combat();
 		System.out.println("Victory!");
+		// Checks to see if you leveled up
+		Experience();
+		PlayerStats.main(null);
 	}
 
 	// Initiative
@@ -220,4 +223,8 @@ public class EnemyEncounter {
 	}
 	//
 
+    //How much experience is given when the enemy is slain
+    public static void Experience(){
+        PlayerStats.currentEXP() += (1.2*AC + 0.8*HP);
+    }
 }
