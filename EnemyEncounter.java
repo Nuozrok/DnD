@@ -74,7 +74,7 @@ public class EnemyEncounter {
 								// if enemy dies
 								if (HP <= 0) {
 									System.out.println("You have slain the " + enemy + "!");
-									return;
+									break;
 								}
 							} else if (response.equals("back")) {
 								Combat();
@@ -86,7 +86,7 @@ public class EnemyEncounter {
 						// if enemy dies
 						if (HP <= 0) {
 							System.out.println("You have slain the " + enemy + "!");
-							return;
+							break;
 						}
 					}
 				}

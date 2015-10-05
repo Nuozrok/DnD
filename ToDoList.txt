@@ -1,11 +1,11 @@
 mana system
-player rolls for stats
-persistent player stats and command to view said stats at any time
+commands to view anything like stats, hp, mana, experience, etc... 
+    that can be used essentially any time input can be taken from the user
 player armor and weapons
 dungeon generator with rooms containing encounters, loot, or nothing
-menu
 instructions
 inventory
 experience, leveling up, increasing player stats
 score
 scoreboard
+diversify EnemyEncounter

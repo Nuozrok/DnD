@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class FirstRoom{
     public static Scanner input = new Scanner(System.in);
     public static void main(String[] args){
+        PlayerStats.main(null);
         //Description of the room
         System.out.println("");
     
@@ -137,6 +138,10 @@ public class FirstRoom{
 	    if(PlayerStats.INT < 0){
 	        PlayerStats.INT = 0;
 	    }
+	    
+	    //Set HP
+	    PlayerStats.HP = 20 + PlayerStats.DEX;
+	    PlayerStats.totalHP = PlayerStats.HP;
         System.out.println("You are a(n) " +race+ " with " +PlayerStats.DEX+ " dexterity, " +PlayerStats.AC
             + " armour class, " +PlayerStats.STR+ " strength, " +PlayerStats.INT+ " intelligence, " 
             + PlayerStats.totalHP+ " total health.");
