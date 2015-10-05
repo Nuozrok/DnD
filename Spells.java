@@ -9,7 +9,9 @@ public class Spells {
 	public static void Heal(){
 		boolean loop = true;
 		while(loop == true){
+			System.out.println("====================");
 			System.out.println("Roll to heal");
+			System.out.println("====================");
 			String response = input.nextLine().toLowerCase();	
 			if(response.equals("roll")){
 				RNG.D4();
@@ -29,7 +31,9 @@ public class Spells {
 		System.out.println("You shoot a fireball");
 		boolean loop1 = true;
 		while(loop1 == true){
+			System.out.println("====================");
 			System.out.println("Roll to see if it hits");
+			System.out.println("====================");
 			String response = input.nextLine().toLowerCase();	
 			if(response.equals("roll")){
 				loop1 = false;
@@ -45,7 +49,9 @@ public class Spells {
 						System.out.println("It hits!");
 						boolean loop2 = true;
 						while(loop2 == true){
+							System.out.println("====================");
 							System.out.println("Roll for damage");
+							System.out.println("====================");
 							if(input.nextLine().toLowerCase().equals("roll")){
 								loop2 = false;
 								RNG.D8();

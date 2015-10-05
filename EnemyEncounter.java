@@ -15,6 +15,7 @@ public class EnemyEncounter {
 		// Checks to see if you leveled up
 		Experience();
 		PlayerStats.main(null);
+		System.exit(0);
 	}
 
 	// Initiative
@@ -77,7 +78,8 @@ public class EnemyEncounter {
 								// if enemy dies
 								if (HP <= 0) {
 									System.out.println("You have slain the " + enemy + "!");
-									break;
+									combat = false;
+									return;
 								}
 							} else if (response.equals("back")) {
 								Combat();
@@ -89,7 +91,8 @@ public class EnemyEncounter {
 						// if enemy dies
 						if (HP <= 0) {
 							System.out.println("You have slain the " + enemy + "!");
-							break;
+							combat = false;
+							return;
 						}
 					}
 				}
@@ -140,6 +143,7 @@ public class EnemyEncounter {
 				init--;
 			}
 		}
+		return;
 	}
 
 	public static void Attack() {
@@ -210,6 +214,7 @@ public class EnemyEncounter {
 	// Stats
 	public static int DEX;
 	public static int HP;
+	public static int totalHP;
 	public static int AC;
 	public static int STR;
 	public static int INT;
@@ -217,6 +222,7 @@ public class EnemyEncounter {
 	public static void Stats() {
 		DEX = RNG.D8();
 		HP = 32 + DEX;
+		totalHP = HP;
 		AC = 0;
 		STR = RNG.D4();
 		INT = RNG.D4();
@@ -225,6 +231,7 @@ public class EnemyEncounter {
 
     //How much experience is given when the enemy is slain
     public static void Experience(){
-        PlayerStats.currentEXP() += (1.2*AC + 0.8*HP);
+        PlayerStats.currentEXP += (12*AC + 8*totalHP);
+        System.out.println("You gained " +(12*AC + 8*totalHP)+ " experience!");
     }
 }
