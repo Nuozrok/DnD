@@ -7,7 +7,7 @@ public class EnemyEncounter {
 	public static void main(String[] args) {
 		PlayerStats.main(null);
 		Enemy();
-		System.out.println("You are attacked by a " + enemy + "!");
+		System.out.println("You are attacked by a(n) " + enemy + "!");
 		Stats();
 		Initiative();
 		Combat();
@@ -208,7 +208,8 @@ public class EnemyEncounter {
 	public static String enemy;
 
 	public static void Enemy() {
-		enemy = "troll";
+		enemy = "imp";
+		//enemy = "troll";
 	}
 	//
 
@@ -221,12 +222,24 @@ public class EnemyEncounter {
 	public static int INT;
 
 	public static void Stats() {
-		DEX = RNG.D8();
-		HP = 32 + DEX;
-		totalHP = HP;
-		AC = 0;
-		STR = RNG.D4();
-		INT = RNG.D4();
+	    if(enemy.equals("imp")){
+	        DEX = RNG.D4();
+		    HP = 5 + DEX;
+		    totalHP = HP;
+		    AC = 0;
+		    STR = RNG.D4() - 2;
+		    if(STR < 0){
+		        STR = 0;
+		    }
+		    INT = RNG.D4();
+		}else if(enemy.equals("troll")){
+		    DEX = RNG.D8();
+		    HP = 32 + DEX;
+		    totalHP = HP;
+		    AC = 0;
+		    STR = RNG.D4();
+		    INT = RNG.D4();
+		}
 	}
 	//
 
