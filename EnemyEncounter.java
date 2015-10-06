@@ -207,8 +207,17 @@ public class EnemyEncounter {
 	// To be modified via 'if statements' further in development
 	public static String enemy;
 
+    //Enemies in caps are bosses
 	public static void Enemy() {
 		enemy = "imp";
+		//enemy = "IMP LORD";
+		//enemy = "toadman";
+		//enemy = "giant spider";
+		//enemy = "BROODMOTHER";
+		//enemy = "goblin sorceror";
+		//enemy = "goblin warrior";
+		//enemy = "goblin archer";
+		//enemy = "GOBLIN CHIEFTAN";
 		//enemy = "troll";
 	}
 	//
@@ -232,12 +241,68 @@ public class EnemyEncounter {
 		        STR = 0;
 		    }
 		    INT = RNG.D4();
+	    }else if(enemy.equals("IMP LORD")){
+	        DEX = 
+	        HP =
+	        totalHP = HP;
+	        AC = 
+	        STR = 
+	        INT = 
+	    }else if(enemy.equals("toadman")){
+	        DEX = RNG.D4();
+	        HP = 10 + DEX;
+	        totalHP = HP;
+	        AC = 2;
+	        STR = RNG.D4();
+	        INT = RNG.D4();
+	    }else if(enemy.equals("giant spider")){
+	        DEX = RNG.D4();
+	        HP = 16 + DEX;
+	        totalHP = HP;
+	        AC = 0;
+	        STR = RNG.D4();
+	        INT = RNG.D4();
+	    }else if(enemy.equals("BROODMOTHER")){
+	        DEX = 
+	        HP =
+	        totalHP = HP;
+	        AC = 
+	        STR = 
+	        INT = 
+	    }else if(enemy.equals("goblin sorceror")){
+	        DEX = 
+	        HP =
+	        totalHP = HP;
+	        AC = 
+	        STR = 
+	        INT = 
+	    }else if(enemy.equals("goblin warrior")){
+	        DEX = 
+	        HP =
+	        totalHP = HP;
+	        AC = 
+	        STR = 
+	        INT = 
+	    }else if(enemy.equals("goblin archer")){
+	        DEX = 
+	        HP =
+	        totalHP = HP;
+	        AC = 
+	        STR = 
+	        INT =
+	    }else if(enemy.equals("GOBLIN CHIEFTAN")){
+	        DEX = 
+	        HP =
+	        totalHP = HP;
+	        AC = 
+	        STR = 
+	        INT = 
 		}else if(enemy.equals("troll")){
 		    DEX = RNG.D8();
 		    HP = 32 + DEX;
 		    totalHP = HP;
 		    AC = 0;
-		    STR = RNG.D4();
+		    STR = RNG.D4() + 4;
 		    INT = RNG.D4();
 		}
 	}
