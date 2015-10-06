@@ -66,6 +66,7 @@ public class Dungeon {
     				currentRoom.description += "\n there is a room to the north of you";
     			
     				break;
+				
     			}
 			
 		}
@@ -74,7 +75,9 @@ public class Dungeon {
 
 	// Enter New Room
 	public static void changeRoom() {
-
+        System.out.println(currentRoom.description);
+        Scanner whichRoom = new Scanner(System.in);
+        
 	}
 	//
 
