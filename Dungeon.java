@@ -75,8 +75,44 @@ public class Dungeon {
 
 	// Enter New Room
 	public static void changeRoom() {
-        System.out.println(currentRoom.description);
-        Scanner whichRoom = new Scanner(System.in);
+        Scanner whichDirection = new Scanner(System.in);
+        String selectedRoom = whichRoom.nextDirection();
+        
+        // did they choose a valid direction and is there a door there?
+        if (selectedRoom.equalsIgnoreCase("North") && currentRoom.canMoveNorth != -1)
+        {
+            int id = currentRoom.canMoveNorth;
+            System.out.println("walking northwards");
+            currentRoom = rooms[id];
+            System.out.println(currentRoom.description);
+        }
+        else if(selectedRoom.equalsIgnoreCase("South") && currentRoom.canMoveSouth != -1)
+        {
+            
+            int id = currentRoom.canMoveSouth;
+            System.out.println("walking northwards");
+            currentRoom = rooms[id];
+            System.out.println(currentRoom.description);    
+        }
+        else if(selectedRoom.equalsIgnoreCase("East" && currentRoom.canMoveEast != -1)
+        {
+            int id = currentRoom.canMoveEast;
+            System.out.println("walking eastwards");
+            currentRoom = rooms[id];
+            System.out.println(currentRoom.description);
+        }
+        else if(selectedRoom.equalsIgnoreCase("West") && currentRoom.canMoveWest != -1)
+        {
+            
+            int id = currentRoom.canMoveWest;
+            System.out.println("walking westwards");
+            currentRoom = rooms[id];
+            System.out.println(currentRoom.description);
+        }
+        else{
+            System.out.println("sorry, try another direction");
+            changeRoom();
+        }
         
 	}
 	//
