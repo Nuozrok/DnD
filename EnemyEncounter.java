@@ -242,32 +242,32 @@ public class EnemyEncounter {
 		    }
 		    INT = RNG.D4();
 	    }else if(enemy.equals("IMP LORD")){
-	        DEX = 
-	        HP =
+	        DEX = RNG.D4();
+	        HP = 14 + DEX();
 	        totalHP = HP;
-	        AC = 
-	        STR = 
-	        INT = 
+	        AC = 4;
+	        STR = RNG.D4();
+	        INT = RNG.D4();
 	    }else if(enemy.equals("toadman")){
 	        DEX = RNG.D4();
 	        HP = 10 + DEX;
 	        totalHP = HP;
 	        AC = 2;
 	        STR = RNG.D4();
-	        INT = RNG.D4();
+	        INT = RNG.D4() + 1;
 	    }else if(enemy.equals("giant spider")){
 	        DEX = RNG.D4();
 	        HP = 16 + DEX;
 	        totalHP = HP;
 	        AC = 0;
 	        STR = RNG.D4();
-	        INT = RNG.D4();
+	        INT = RNG.D4() + 2;
 	    }else if(enemy.equals("BROODMOTHER")){
-	        DEX = 
-	        HP =
+	        DEX = RNG.D4();
+	        HP = 20 + DEX;
 	        totalHP = HP;
-	        AC = 
-	        STR = 
+	        AC = 0;
+	        STR = RNG.D4() + 3
 	        INT = 
 	    }else if(enemy.equals("goblin sorceror")){
 	        DEX = 
