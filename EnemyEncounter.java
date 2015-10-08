@@ -209,19 +209,34 @@ public class EnemyEncounter {
 
     //Enemies in caps are bosses
 	public static void Enemy() {
+		enemy = NULL;
+		while(enemy = NULL){
+		        spawnEnemy(PlayerStats.LVL);
+		    }
+		}
 		enemy = "imp";
-		//enemy = "IMP LORD";
-		//enemy = "toadman";
-		//enemy = "giant spider";
-		//enemy = "BROODMOTHER";
-		//enemy = "goblin sorceror";
-		//enemy = "goblin warrior";
-		//enemy = "goblin archer";
-		//enemy = "GOBLIN CHIEFTAN";
-		//enemy = "troll";
+		enemy = "IMP LORD";
+		enemy = "toadman";
+		enemy = "giant spider";
+		enemy = "BROODMOTHER";
+		enemy = "goblin sorceror";
+		enemy = "goblin warrior";
+		enemy = "goblin archer";
+		enemy = "GOBLIN CHIEFTAN";
+		enemy = "troll";
 	}
-	//
-
+	//Spawn Enemy based on player level and randomly choose enemy, or the "boss"
+    public static spawnEnemy(int lvl){
+        RNG.D100();
+        if(lvl <= 1){
+            if(num <= 90){
+                enemy = "imp";
+            }else{
+                enemy = "IMP LORD";
+            }
+        }if(lvl ) 
+    }
+    
 	// Stats
 	public static int DEX;
 	public static int HP;
@@ -267,36 +282,36 @@ public class EnemyEncounter {
 	        HP = 20 + DEX;
 	        totalHP = HP;
 	        AC = 0;
-	        STR = RNG.D4() + 3
-	        INT = 
+	        STR = RNG.D4() + 3;
+	        INT = RNG.D4();
 	    }else if(enemy.equals("goblin sorceror")){
-	        DEX = 
-	        HP =
+	        DEX = RNG.D4();
+	        HP = 14 + DEX;
 	        totalHP = HP;
-	        AC = 
-	        STR = 
-	        INT = 
+	        AC = 2;
+	        STR = RNG.D4();
+	        INT = RNG.D4() + 4;
 	    }else if(enemy.equals("goblin warrior")){
-	        DEX = 
-	        HP =
+	        DEX = RNG.D4();
+	        HP = 20 + DEX;
 	        totalHP = HP;
-	        AC = 
-	        STR = 
-	        INT = 
+	        AC = 6;
+	        STR = RNG.D4() + 1;
+	        INT = RNG.D4();
 	    }else if(enemy.equals("goblin archer")){
-	        DEX = 
-	        HP =
+	        DEX = RNG.D4();
+	        HP = 16 + DEX;
 	        totalHP = HP;
-	        AC = 
-	        STR = 
-	        INT =
+	        AC = 3;
+	        STR = RNG.D4() + 3;
+	        INT = RNG.D4();
 	    }else if(enemy.equals("GOBLIN CHIEFTAN")){
-	        DEX = 
-	        HP =
+	        DEX = RNG.D4();
+	        HP = 24 + DEX;
 	        totalHP = HP;
-	        AC = 
-	        STR = 
-	        INT = 
+	        AC = 6;
+	        STR = RNG.D4() + 4;
+	        INT = RNG.D4() + 2;
 		}else if(enemy.equals("troll")){
 		    DEX = RNG.D8();
 		    HP = 32 + DEX;
