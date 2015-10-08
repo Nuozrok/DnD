@@ -1,11 +1,16 @@
 import java.lang.*;
+import java.util.*;
 
 public class Dungeon {
 
+    public static Room playerRoom;
+	public static int maxRooms = 9;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	    public static final Room playerRoom;
-		public static final int maxRooms = 9;
+	   
+		Start();
+		FirstRoom.main(null);
+		Generate();
 	}
 
 	// Create First Room
@@ -14,7 +19,7 @@ public class Dungeon {
 	   
 		Room firstRoom = new Room();
 	    playerRoom = firstRoom;
-		Room rooms[maxRooms];
+		Room[] rooms = new Room[maxRooms];
 		firstRoom.id = 0;
 		rooms[0] = firstRoom;
 
@@ -94,7 +99,7 @@ public class Dungeon {
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);    
         }
-        else if(selectedRoom.equalsIgnoreCase("East" && currentRoom.canMoveEast != -1)
+        else if(selectedRoom.equalsIgnoreCase("East" && currentRoom.canMoveEast != -1))
         {
             int id = currentRoom.canMoveEast;
             System.out.println("walking eastwards");
