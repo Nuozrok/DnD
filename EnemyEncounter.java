@@ -214,27 +214,43 @@ public class EnemyEncounter {
 		        spawnEnemy(PlayerStats.LVL);
 		    }
 		}
-		enemy = "imp";
-		enemy = "IMP LORD";
-		enemy = "toadman";
-		enemy = "giant spider";
-		enemy = "BROODMOTHER";
-		enemy = "goblin sorceror";
-		enemy = "goblin warrior";
-		enemy = "goblin archer";
-		enemy = "GOBLIN CHIEFTAN";
-		enemy = "troll";
 	}
 	//Spawn Enemy based on player level and randomly choose enemy, or the "boss"
     public static spawnEnemy(int lvl){
         RNG.D100();
-        if(lvl <= 1){
-            if(num <= 90){
+        if(lvl <= 2){
+            if(RNG.num <= 90){
                 enemy = "imp";
             }else{
                 enemy = "IMP LORD";
             }
-        }if(lvl ) 
+        }else if(lvl > 2 && lvl <= 3){
+            if(RNG.num <= 20){
+                enemy = "imp";
+            }else if(RNG.num > 20 && RNG.num <= 90){
+                enemy = "toadman";
+            }else{
+                enemy = "IMP LORD";
+            }
+        }else if(lvl > 3 && <= 5){
+            if(RNG.num <= 10){
+                enemy = "toadman";
+            }else if(RNG.num > 10 && RNG.num <= 90){
+                enemy = "giant spider";
+            }else{
+                enemy = "BROODMOTHER";
+            }
+        }else if (lvl > 5 && lvl <= 8){
+            if(RNG.num <= 30){
+                enemy = "goblin sorceror";
+            }else if(RNG.num > 30 && RNG.num <= 60){
+                enemy = "goblin warrior";
+            }else if(RNG.num >60 && RNG.num <= 90){
+                enemy = "goblin archer";
+            }else if(RNG.num > 90 && RNG.num <= 100){
+                enemy = "GOBLIN CHIEFTAN";   
+            }
+        } 
     }
     
 	// Stats
@@ -312,13 +328,14 @@ public class EnemyEncounter {
 	        AC = 6;
 	        STR = RNG.D4() + 4;
 	        INT = RNG.D4() + 2;
-		}else if(enemy.equals("troll")){
-		    DEX = RNG.D8();
-		    HP = 32 + DEX;
-		    totalHP = HP;
-		    AC = 0;
-		    STR = RNG.D4() + 4;
-		    INT = RNG.D4();
+	//The troll is still not 
+	//	}else if(enemy.equals("troll")){
+	//	    DEX = RNG.D8();
+	//	    HP = 32 + DEX;
+	//	    totalHP = HP;
+	//	    AC = 0;
+	//	    STR = RNG.D4() + 4;
+	//	    INT = RNG.D4();
 		}
 	}
 	//
