@@ -10,12 +10,14 @@ public class Dungeon {
 	   
 		Start();
 		FirstRoom.main(null);
+		
+		int roomCount = 0;
+		for (int i )
 		Generate();
 	}
 
 	// Create First Room
 	public static void Start() {
-	   
 	   
 		Room firstRoom = new Room();
 	    playerRoom = firstRoom;
@@ -29,7 +31,6 @@ public class Dungeon {
 	// Generate Rooms
 	public static void Generate() {
 
-		int roomCount = 0;
 		while (roomCount < maxRooms) {
 			// 1. create a room
 			roomCount++;
