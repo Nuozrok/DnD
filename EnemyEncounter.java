@@ -208,23 +208,22 @@ public class EnemyEncounter {
 	public static String enemy;
 
     //Enemies in caps are bosses
-	public static void Enemy() {
-		enemy = NULL;
-		while(enemy = NULL){
-		        spawnEnemy(PlayerStats.LVL);
-		    }
+	public static void Enemy(){
+		enemy = null;
+		while(enemy == null){
+		        SpawnEnemy();
 		}
 	}
 	//Spawn Enemy based on player level and randomly choose enemy, or the "boss"
-    public static spawnEnemy(int lvl){
+    public static void SpawnEnemy(){
         RNG.D100();
-        if(lvl <= 2){
+        if(PlayerStats.LVL <= 2){
             if(RNG.num <= 90){
                 enemy = "imp";
             }else{
                 enemy = "IMP LORD";
             }
-        }else if(lvl > 2 && lvl <= 3){
+        }else if(PlayerStats.LVL > 2 && PlayerStats.LVL <= 3){
             if(RNG.num <= 20){
                 enemy = "imp";
             }else if(RNG.num > 20 && RNG.num <= 90){
@@ -232,7 +231,7 @@ public class EnemyEncounter {
             }else{
                 enemy = "IMP LORD";
             }
-        }else if(lvl > 3 && <= 5){
+        }else if(PlayerStats.LVL > 3 && PlayerStats.LVL <= 5){
             if(RNG.num <= 10){
                 enemy = "toadman";
             }else if(RNG.num > 10 && RNG.num <= 90){
@@ -240,7 +239,7 @@ public class EnemyEncounter {
             }else{
                 enemy = "BROODMOTHER";
             }
-        }else if (lvl > 5 && lvl <= 8){
+        }else if (PlayerStats.LVL > 5 && PlayerStats.LVL <= 8){
             if(RNG.num <= 30){
                 enemy = "goblin sorceror";
             }else if(RNG.num > 30 && RNG.num <= 60){
@@ -261,7 +260,7 @@ public class EnemyEncounter {
 	public static int STR;
 	public static int INT;
 
-	public static void Stats() {
+	public static void Stats(){
 	    if(enemy.equals("imp")){
 	        DEX = RNG.D4();
 		    HP = 5 + DEX;
@@ -274,7 +273,7 @@ public class EnemyEncounter {
 		    INT = RNG.D4();
 	    }else if(enemy.equals("IMP LORD")){
 	        DEX = RNG.D4();
-	        HP = 14 + DEX();
+	        HP = 14 + DEX;
 	        totalHP = HP;
 	        AC = 4;
 	        STR = RNG.D4();
@@ -328,7 +327,7 @@ public class EnemyEncounter {
 	        AC = 6;
 	        STR = RNG.D4() + 4;
 	        INT = RNG.D4() + 2;
-	//The troll is still not 
+	//The troll is still not anywhere near balanced for current level bracket
 	//	}else if(enemy.equals("troll")){
 	//	    DEX = RNG.D8();
 	//	    HP = 32 + DEX;
