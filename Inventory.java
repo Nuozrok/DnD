@@ -39,21 +39,28 @@ public class Inventory {
 	public static void equip(){
 	    Scanner input = new Scanner(System.in);
 	    System.out.println("====================");
-	    System.out.println("What would you like to equip?");
+	    System.out.println("What type of gear would you like to equip?");
 	    System.out.println("headgear\nchestpiece\nbracers\ngloves\nring\nleggings\nboots\nweapon");
 	    System.out.println("====================");
+	    System.out.println("back");
 	    String response = input.next();
 	    boolean loop = true;
 	    while(loop = true){
 	        if(response.equalsIgnoreCase("headgear")){
+	            loop  = false;
 	            System.out.println("====================");
 	            System.out.println("Which headgear would you like to equip?");
-	            //if item is headgear and in your inventory, then list it as a choice
-	            //print choices
-	            System.out.println();
+	            String fileName = "Inventory.txt";
+                String buffer;
+                TextIO.readFile(fileName);
+                while(TextIO.peek() != TextIO.EOF){
+                    buffer = TextIO.getln();
+                    TextIO.putf("%s\n", buffer);
+                }
+                TextIO.readStandardInput();
+	            //list headgear currently in inventory, their stats, and what is currently equipped
 	            System.out.println("====================");
 	            //if choice was x, then equip x and print that x was equipped
-	            System.out.println("back");
 	        }else if(response.equalsIgnoreCase("chestpiece")){
 	        
 	        }else if(response.equalsIgnoreCase("bracers")){
@@ -68,6 +75,8 @@ public class Inventory {
 	        
 	        }else if(response.equalsIgnoreCase("weapon")){
 	        
+	        }else if(response.equalsIgnoreCase("back")){
+	            break;
 	        }         
 	    }
 	}

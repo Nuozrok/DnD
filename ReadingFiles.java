@@ -1,11 +1,3 @@
-/*
- * Michael Wong
- * 10/16/15
- * "AP"Java
- * 
- * fooling around with reading files
- */
-
 public class ReadingFiles
 {
     public static void main(String args[])
