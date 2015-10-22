@@ -52,13 +52,13 @@ public class Inventory {
 	            System.out.println("Which headgear would you like to equip?");
 	            String fileName = "Inventory.txt";
                 String buffer;
+	            //list headgear currently in inventory, their stats, and what is currently equipped
                 TextIO.readFile(fileName);
                 while(TextIO.peek() != TextIO.EOF){
                     buffer = TextIO.getln();
                     TextIO.putf("%s\n", buffer);
                 }
                 TextIO.readStandardInput();
-	            //list headgear currently in inventory, their stats, and what is currently equipped
 	            System.out.println("====================");
 	            //if choice was x, then equip x and print that x was equipped
 	        }else if(response.equalsIgnoreCase("chestpiece")){
