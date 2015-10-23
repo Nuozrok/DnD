@@ -5,90 +5,77 @@ public class Dungeon {
 
     public static Room playerRoom;
 	public static int maxRooms = 9;
+	
+	public static Room[] rooms = new Room[maxRooms];
+    public static Room currentRoom = new Room();
+	
 	public static void main(String[] args) {
 
 		Start();
-		FirstRoom.main(null);
-<<<<<<< Updated upstream
-		Generate();
-		Content();
-		
-	}
-
-=======
-		
-		int roomCount = 0;
-	
-	    Content();
+		//FirstRoom.main(null);
+	   Content();
     }
->>>>>>> Stashed changes
-	// Create First Room
-	public static int roomCount = 0;
-	public static Room firstRoom = new Room();
-	public static Room[] rooms = new Room[maxRooms];
 
+	// create first room
 	public static void Start() {
-	    playerRoom = firstRoom;
-		firstRoom.id = 0;
-		rooms[0] = firstRoom;
+	    playerRoom = currentRoom;
+		currentRoom.id = 0;
+		rooms[0] = currentRoom;
+		Generate();
 	}
 	
 
-	// Generate Rooms
+	// adds another room to the maze
 	public static void Generate() {
 
-		while (roomCount < maxRooms) {
-			// 1. create a room
-			roomCount++;
-			Room currentRoom = new Room();
-			currentRoom.id = roomCount;
-
+      		// 1. create a room
+      		currentRoom = new Room();
+			currentRoom.id = rooms.length;
             // which direction will the door be (don't forget to check that door isn't already there)
 
         	// 4. randomly add a door to the wall
     			switch (RNG.D4()) {
     			case 1:
     			    // forward door
-    				rooms[roomCount - 1].canMoveNorth = currentRoom.id;
+    				rooms[rooms.length - 1].canMoveNorth = currentRoom.id;
     				currentRoom.description += "\n there is a room to the north of you";  
     				
     				// backwards door
-                    currentRoom.canMoveSouth = rooms[roomCount - 1].id;
+                    currentRoom.canMoveSouth = rooms[rooms.length - 1].id;
     				currentRoom.description += "\n there is a room to the south of you";
     				break;
     			case 2:
-                    rooms[roomCount - 1].canMoveEast = currentRoom.id; 
+                    rooms[rooms.length - 1].canMoveEast = currentRoom.id; 
     				currentRoom.description += "\n there is a room to the east of you";
     				
-                    currentRoom.canMoveWest = rooms[roomCount - 1].id;
+                    currentRoom.canMoveWest = rooms[rooms.length - 1].id;
     				currentRoom.description += "\n there is a room to the west of you";
     				break;
     			case 3:
-                    rooms[roomCount - 1].canMoveWest = currentRoom.id;
+                    rooms[rooms.length - 1].canMoveWest = currentRoom.id;
     				currentRoom.description += "\n there is a room to the east of you";
     				
-                    currentRoom.canMoveEast = rooms[roomCount - 1].id;
+                    currentRoom.canMoveEast = rooms[rooms.length - 1].id;
     				currentRoom.description += "\n there is a room to the west of you";    			
     				break;
      			case 4:
-                    rooms[roomCount - 1].canMoveSouth = currentRoom.id;  
+                    rooms[rooms.length - 1].canMoveSouth = currentRoom.id;  
     				currentRoom.description += "\n there is a room to the south of you";
     				
-    			    currentRoom.canMoveNorth = rooms[roomCount - 1].id;
+    			    currentRoom.canMoveNorth = rooms[rooms.length - 1].id;
     				currentRoom.description += "\n there is a room to the north of you";
     			
     				break;
 				
     			}
 			
-		}
 	}
 	//
 
 	// Enter New Room
 	public static void changeRoom() {
         Scanner whichDirection = new Scanner(System.in);
-        String selectedRoom = whichRoom.nextDirection();
+        String selectedRoom = whichDirection.nextLine();
         
         // did they choose a valid direction and is there a door there?
         if (selectedRoom.equalsIgnoreCase("North") && currentRoom.canMoveNorth != -1)
@@ -106,7 +93,7 @@ public class Dungeon {
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);    
         }
-        else if(selectedRoom.equalsIgnoreCase("East" && currentRoom.canMoveEast != -1))
+        else if(selectedRoom.equalsIgnoreCase("East") && currentRoom.canMoveEast != -1)
         {
             int id = currentRoom.canMoveEast;
             System.out.println("walking eastward");
@@ -132,11 +119,7 @@ public class Dungeon {
 	public static void Content() {
 		RNG.D100();
 		if (RNG.num <= 75) {
-<<<<<<< Updated upstream
-			EnemyEncounter.main(null);
-=======
 			Generate();
->>>>>>> Stashed changes
 			changeRoom();
 			EnemyEncounter.main(null);
 			
@@ -144,11 +127,7 @@ public class Dungeon {
 		    System.out.println("Doesn't seem to be anything here");
 			changeRoom();
 		} else if (RNG.num > 90 && RNG.num <= 100) {
-<<<<<<< Updated upstream
-			Loot.main(null);
-=======
-			Generate();
->>>>>>> Stashed changes
+				Generate();
 			changeRoom();
 			Loot.main(null);
 		}

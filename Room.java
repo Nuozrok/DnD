@@ -1,11 +1,6 @@
 // an individual room, because classes are like structs
 
 public class Room {
-
-	public static void main(String[] args) {
-	}
-
-	// Room Properties
 	public static int id;
 	public static String roomName;
 	public static String description;
