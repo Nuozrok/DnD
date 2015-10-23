@@ -6,25 +6,23 @@ public class Dungeon {
     public static Room playerRoom;
 	public static int maxRooms = 9;
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	   
+
 		Start();
 		FirstRoom.main(null);
-		
-		int roomCount = 0;
-		for (int i )
 		Generate();
+		Content();
+		
 	}
 
 	// Create First Room
+	public static int roomCount = 0;
+	public static Room firstRoom = new Room();
+	public static Room[] rooms = new Room[maxRooms];
+
 	public static void Start() {
-	   
-		Room firstRoom = new Room();
 	    playerRoom = firstRoom;
-		Room[] rooms = new Room[maxRooms];
 		firstRoom.id = 0;
 		rooms[0] = firstRoom;
-
 	}
 	
 
@@ -88,7 +86,7 @@ public class Dungeon {
         if (selectedRoom.equalsIgnoreCase("North") && currentRoom.canMoveNorth != -1)
         {
             int id = currentRoom.canMoveNorth;
-            System.out.println("walking northwards");
+            System.out.println("walking northward");
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);
         }
@@ -96,14 +94,14 @@ public class Dungeon {
         {
             
             int id = currentRoom.canMoveSouth;
-            System.out.println("walking northwards");
+            System.out.println("walking southward");
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);    
         }
         else if(selectedRoom.equalsIgnoreCase("East" && currentRoom.canMoveEast != -1))
         {
             int id = currentRoom.canMoveEast;
-            System.out.println("walking eastwards");
+            System.out.println("walking eastward");
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);
         }
@@ -111,7 +109,7 @@ public class Dungeon {
         {
             
             int id = currentRoom.canMoveWest;
-            System.out.println("walking westwards");
+            System.out.println("walking westward");
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);
         }
@@ -126,14 +124,12 @@ public class Dungeon {
 	public static void Content() {
 		RNG.D100();
 		if (RNG.num <= 75) {
-			Generate();
 			EnemyEncounter.main(null);
 			changeRoom();
 		} else if (RNG.num > 75 && RNG.num <= 90) {
-			Generate();
+		    System.out.println("Doesn't seem to be anything here");
 			changeRoom();
 		} else if (RNG.num > 90 && RNG.num <= 100) {
-			Generate();
 			Loot.main(null);
 			changeRoom();
 		}
