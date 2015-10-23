@@ -34,39 +34,62 @@ public class Dungeon {
             // which direction will the door be (don't forget to check that door isn't already there)
 
         	// 4. randomly add a door to the wall
-    			switch (RNG.D4()) {
+        	int randomDirection;
+        	boolean foundADirection = false;
+        	
+        	while(foundADirection == false)
+        	{
+        	    randomDirection = RNG.D4();
+    			switch (randomDirection) {
     			case 1:
-    			    // forward door
-    				rooms[rooms.length - 1].canMoveNorth = currentRoom.id;
-    				currentRoom.description += "\n there is a room to the north of you";  
-    				
-    				// backwards door
-                    currentRoom.canMoveSouth = rooms[rooms.length - 1].id;
-    				currentRoom.description += "\n there is a room to the south of you";
-    				break;
+    			    if (currentRoom.canMoveSouth == -1)
+    			    {
+        			    // forward door
+        				rooms[rooms.length - 1].canMoveNorth = currentRoom.id;
+        				currentRoom.description += "\n there is a room to the north of you";  
+        				
+        				// backwards door
+                        currentRoom.canMoveSouth = rooms[rooms.length - 1].id;
+        				currentRoom.description += "\n there is a room to the south of you";
+        				foundADirection = true;
+    			    }
+        	    	break;
+        			    
     			case 2:
-                    rooms[rooms.length - 1].canMoveEast = currentRoom.id; 
-    				currentRoom.description += "\n there is a room to the east of you";
-    				
-                    currentRoom.canMoveWest = rooms[rooms.length - 1].id;
-    				currentRoom.description += "\n there is a room to the west of you";
-    				break;
+    			    if(currentRoom.canMoveWest == -1)
+    			    {
+                        rooms[rooms.length - 1].canMoveEast = currentRoom.id; 
+        				currentRoom.description += "\n there is a room to the east of you";
+        				
+                        currentRoom.canMoveWest = rooms[rooms.length - 1].id;
+        				currentRoom.description += "\n there is a room to the west of you";
+    		        	foundADirection = true;
+    			    }
+        			break;
     			case 3:
-                    rooms[rooms.length - 1].canMoveWest = currentRoom.id;
-    				currentRoom.description += "\n there is a room to the east of you";
-    				
-                    currentRoom.canMoveEast = rooms[rooms.length - 1].id;
-    				currentRoom.description += "\n there is a room to the west of you";    			
+			        if(currentRoom.canMoveEast == -1)
+			        {
+                        rooms[rooms.length - 1].canMoveWest = currentRoom.id;
+        				currentRoom.description += "\n there is a room to the east of you";
+        				
+                        currentRoom.canMoveEast = rooms[rooms.length - 1].id;
+        				currentRoom.description += "\n there is a room to the west of you";    			
+			            foundADirection = true;
+			        }
     				break;
      			case 4:
-                    rooms[rooms.length - 1].canMoveSouth = currentRoom.id;  
-    				currentRoom.description += "\n there is a room to the south of you";
-    				
-    			    currentRoom.canMoveNorth = rooms[rooms.length - 1].id;
-    				currentRoom.description += "\n there is a room to the north of you";
-    			
+     			    if(currentRoom.canMoveNorth == -1)
+     			    {
+                        rooms[rooms.length - 1].canMoveSouth = currentRoom.id;  
+        				currentRoom.description += "\n there is a room to the south of you";
+        				
+        			    currentRoom.canMoveNorth = rooms[rooms.length - 1].id;
+        				currentRoom.description += "\n there is a room to the north of you";
+     
+     			        foundADirection = true;
+     			    }
     				break;
-				
+    			}	
     			}
 			
 	}
@@ -109,7 +132,8 @@ public class Dungeon {
             System.out.println(currentRoom.description);
         }
         else{
-            System.out.println("sorry, try another direction");
+            System.out.println("you discover a new area");
+            Generate();
             changeRoom();
         }
         
