@@ -69,8 +69,8 @@ public class EnemyEncounter {
 						while (loop2 == true) {
 							System.out.println("====================");
 							System.out.println("Roll to attack");
-							System.out.println("Back");
 							System.out.println("====================");
+							System.out.println("Back");
 							response = input.nextLine().toLowerCase();
 							if (response.equals("roll")) {
 								loop2 = false;
