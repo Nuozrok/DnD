@@ -9,11 +9,19 @@ public class Dungeon {
 
 		Start();
 		FirstRoom.main(null);
+<<<<<<< Updated upstream
 		Generate();
 		Content();
 		
 	}
 
+=======
+		
+		int roomCount = 0;
+	
+	    Content();
+    }
+>>>>>>> Stashed changes
 	// Create First Room
 	public static int roomCount = 0;
 	public static Room firstRoom = new Room();
@@ -124,14 +132,25 @@ public class Dungeon {
 	public static void Content() {
 		RNG.D100();
 		if (RNG.num <= 75) {
+<<<<<<< Updated upstream
 			EnemyEncounter.main(null);
+=======
+			Generate();
+>>>>>>> Stashed changes
 			changeRoom();
+			EnemyEncounter.main(null);
+			
 		} else if (RNG.num > 75 && RNG.num <= 90) {
 		    System.out.println("Doesn't seem to be anything here");
 			changeRoom();
 		} else if (RNG.num > 90 && RNG.num <= 100) {
+<<<<<<< Updated upstream
 			Loot.main(null);
+=======
+			Generate();
+>>>>>>> Stashed changes
 			changeRoom();
+			Loot.main(null);
 		}
 	}
 	//
