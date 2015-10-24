@@ -46,11 +46,11 @@ public class Dungeon {
     			    {
         			    // forward door
         				rooms[rooms.length - 1].canMoveNorth = currentRoom.id;
-        				currentRoom.description += "\n there is a room to the north of you";  
+        				currentRoom.description += "\n There is a room to the north of you";  
         				
         				// backwards door
                         currentRoom.canMoveSouth = rooms[rooms.length - 1].id;
-        				currentRoom.description += "\n there is a room to the south of you";
+        				currentRoom.description += "\n There is a room to the south of you";
         				foundADirection = true;
     			    }
         	    	break;
@@ -59,10 +59,10 @@ public class Dungeon {
     			    if(currentRoom.canMoveWest == -1)
     			    {
                         rooms[rooms.length - 1].canMoveEast = currentRoom.id; 
-        				currentRoom.description += "\n there is a room to the east of you";
+        				currentRoom.description += "\n There is a room to the east of you";
         				
                         currentRoom.canMoveWest = rooms[rooms.length - 1].id;
-        				currentRoom.description += "\n there is a room to the west of you";
+        				currentRoom.description += "\n There is a room to the west of you";
     		        	foundADirection = true;
     			    }
         			break;
@@ -70,10 +70,10 @@ public class Dungeon {
 			        if(currentRoom.canMoveEast == -1)
 			        {
                         rooms[rooms.length - 1].canMoveWest = currentRoom.id;
-        				currentRoom.description += "\n there is a room to the east of you";
+        				currentRoom.description += "\n There is a room to the east of you";
         				
                         currentRoom.canMoveEast = rooms[rooms.length - 1].id;
-        				currentRoom.description += "\n there is a room to the west of you";    			
+        				currentRoom.description += "\n There is a room to the west of you";    			
 			            foundADirection = true;
 			        }
     				break;
@@ -81,10 +81,10 @@ public class Dungeon {
      			    if(currentRoom.canMoveNorth == -1)
      			    {
                         rooms[rooms.length - 1].canMoveSouth = currentRoom.id;  
-        				currentRoom.description += "\n there is a room to the south of you";
+        				currentRoom.description += "\n There is a room to the south of you";
         				
         			    currentRoom.canMoveNorth = rooms[rooms.length - 1].id;
-        				currentRoom.description += "\n there is a room to the north of you";
+        				currentRoom.description += "\n There is a room to the north of you";
      
      			        foundADirection = true;
      			    }
@@ -104,7 +104,7 @@ public class Dungeon {
         if (selectedRoom.equalsIgnoreCase("North") && currentRoom.canMoveNorth != -1)
         {
             int id = currentRoom.canMoveNorth;
-            System.out.println("walking northward");
+            System.out.println("Walking northward");
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);
         }
@@ -112,14 +112,14 @@ public class Dungeon {
         {
             
             int id = currentRoom.canMoveSouth;
-            System.out.println("walking southward");
+            System.out.println("Walking southward");
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);    
         }
         else if(selectedRoom.equalsIgnoreCase("East") && currentRoom.canMoveEast != -1)
         {
             int id = currentRoom.canMoveEast;
-            System.out.println("walking eastward");
+            System.out.println("Walking eastward");
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);
         }
@@ -127,12 +127,12 @@ public class Dungeon {
         {
             
             int id = currentRoom.canMoveWest;
-            System.out.println("walking westward");
+            System.out.println("Walking westward");
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);
         }
         else{
-            System.out.println("you discover a new area");
+            System.out.println("You discover a new area");
             Generate();
             changeRoom();
         }

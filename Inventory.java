@@ -1,13 +1,13 @@
 import java.util.Scanner;
 import java.io.*;
 
-public class Inventory {
-
+public class Inventory{
 	public static void main(String[] args) {
-        Gear.main(null);
-        content();
+	    Equipped();
+	    //creates array of objects in inventory
         boolean loop = true;
         while(loop == true){
+            Gear.main(null);
             Scanner input = new Scanner(System.in);
             System.out.println("====================");
             System.out.println("Check or equip?");
@@ -21,19 +21,26 @@ public class Inventory {
                 equip();
             }
         }
+        Equipped();
 	}
-	//items currently in your inventory
-	public static void content(){
-	    //TextIO.writeFile("Inventory.txt");
-	    //TextIO.put("test");
-	}
+	//Inventory
+    public static Gear[] inv = Gear.items();
+    public static void content(){
+        inv[0] = Gear.headgear0;
+        inv[1] = Gear.chestpiece0;
+        inv[2] = Gear.bracers0;
+    }
 	//Print items in your inventroy and their descriptions 
 	public static void checkContent(){
+	    String buffer;
 	    System.out.println("You have:");
-	    TextIO.readFile("Inventory.txt");
-	    String inv = TextIO.getln();
-	    TextIO.writeStandardOutput();
-	    TextIO.putln(inv);
+        int counter = 0;
+        for (int i = 0; i < inv.length; i ++){
+            if (inv[i] != null){
+                System.out.println(inv[counter].name);
+                counter++;
+            }
+        }
 	}
 	//equip gear in your inventory
 	public static void equip(){
@@ -50,16 +57,8 @@ public class Inventory {
 	            loop  = false;
 	            System.out.println("====================");
 	            System.out.println("Which headgear would you like to equip?");
-	            ReadingFiles.main(null);
-	            String fileName = "Inventory.txt";
-                String buffer;
 	            //list headgear currently in inventory, their stats, and what is currently equipped
-                TextIO.readFile(fileName);
-                TextIO.writeStandardOutput();
-                while(TextIO.peek() != TextIO.EOF){
-                    buffer = TextIO.getln();
-                    TextIO.putf("%s\n", buffer);
-                }
+                
 	            System.out.println("====================");
 	            
                 TextIO.readStandardInput();
@@ -84,4 +83,13 @@ public class Inventory {
 	        }         
 	    }
 	}
+
+    
+    //indicates what gear is currently equipped, and applies appropriate stat modifications
+    //will be called when items are being equipped in Inventory.java
+    public static void Equipped(){
+        Equipment.headgear = inv[0];
+        Equipment.chestpiece = inv[1];
+        Equipment.bracers = in[2];
+    }
 }

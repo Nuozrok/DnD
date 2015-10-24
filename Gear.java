@@ -10,40 +10,39 @@ public class Gear{
         this.mod3 = mod3;
     }
     public static void main(String[] args){
-       //all items available to the player in the game
-       
-       //headgear
-       Gear headgear0 = new Gear("leather helm", "headgear", 0, 1, 0, 0);
-       
-       //chestpieces
-       Gear chestpiece0 = new Gear("ragged tunic", "chestpiece", 0, 1, 0, 0);
-       
-       //Bracers
-       Gear bracers0 = new Gear("cloth wristband", "bracer", 0, 1, 0, 0);
-       
-       //Gloves
-       Gear gloves0 = new Gear("fluffy mittens", "gloves", 0, 1, 0, 0);
-       
-       //Rings
-       Gear ring0 = new Gear("rusted ring", "ring", 0, 1, 0, 0);
-       
-       //Leggings
-       Gear leggings0 = new Gear("commoner shorts", "leggings", 0, 1, 0, 0);
-       
-       //Boots
-       Gear boots0 = new Gear("socks with sandals", "boots", 0, 1, 0, 0);
-       
-       //Weapon
-       Gear weapon0 = new Gear("wooden stick", "weapon", 0, 1, 0, 0);
-       
-       
-       Equipped();
-    }
-    //indicates what gear is currently equipped, and applies appropriate stat modifications
-    public static void Equipped(){
         
     }
     
+    public static Gear[] items(){
+        
+        //all items available to the player in the game
+       
+        //headgear
+        Gear headgear0 = new Gear("a leather helm", "headgear", 0, 1, 0, 0);
+       
+        //chestpieces
+        Gear chestpiece0 = new Gear("a ragged tunic", "chestpiece", 0, 1, 0, 0);
+       
+        //Bracers
+        Gear bracers0 = new Gear("a cloth wristband", "bracer", 0, 1, 0, 0);
+       
+        //Gloves
+        Gear gloves0 = new Gear("fluffy mittens", "gloves", 0, 1, 0, 0);
+       
+        //Rings
+        Gear ring0 = new Gear("a rusted ring", "ring", 0, 1, 0, 0);
+       
+        //Leggings
+        Gear leggings0 = new Gear("commoner shorts", "leggings", 0, 1, 0, 0);
+       
+        //Boots
+        Gear boots0 = new Gear("socks with sandals", "boots", 0, 1, 0, 0);
+       
+        //Weapons
+        Gear weapon0 = new Gear("a wooden stick", "weapon", 0, 1, 0, 0);
+        
+        return inv;
+    }
 }
 
 
