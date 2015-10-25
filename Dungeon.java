@@ -11,9 +11,9 @@ public class Dungeon {
 	
 	public static void main(String[] args) {
 
-		Start();
-		//FirstRoom.main(null);
-	   Content();
+	    Start();
+	    //FirstRoom.main(null);
+	    Content();
     }
 
 	// create first room
@@ -46,11 +46,11 @@ public class Dungeon {
     			    {
         			    // forward door
         				rooms[rooms.length - 1].canMoveNorth = currentRoom.id;
-        				currentRoom.description += "\n There is a room to the north of you";  
+        				currentRoom.description += "\nThere is a room to the north of you";  
         				
         				// backwards door
                         currentRoom.canMoveSouth = rooms[rooms.length - 1].id;
-        				currentRoom.description += "\n There is a room to the south of you";
+        				currentRoom.description += "\nThere is a room to the south of you";
         				foundADirection = true;
     			    }
         	    	break;
@@ -59,10 +59,10 @@ public class Dungeon {
     			    if(currentRoom.canMoveWest == -1)
     			    {
                         rooms[rooms.length - 1].canMoveEast = currentRoom.id; 
-        				currentRoom.description += "\n There is a room to the east of you";
+        				currentRoom.description += "\nThere is a room to the east of you";
         				
                         currentRoom.canMoveWest = rooms[rooms.length - 1].id;
-        				currentRoom.description += "\n There is a room to the west of you";
+        				currentRoom.description += "\nThere is a room to the west of you";
     		        	foundADirection = true;
     			    }
         			break;
@@ -70,10 +70,10 @@ public class Dungeon {
 			        if(currentRoom.canMoveEast == -1)
 			        {
                         rooms[rooms.length - 1].canMoveWest = currentRoom.id;
-        				currentRoom.description += "\n There is a room to the east of you";
+        				currentRoom.description += "\nThere is a room to the east of you";
         				
                         currentRoom.canMoveEast = rooms[rooms.length - 1].id;
-        				currentRoom.description += "\n There is a room to the west of you";    			
+        				currentRoom.description += "\nThere is a room to the west of you";    			
 			            foundADirection = true;
 			        }
     				break;
@@ -81,10 +81,10 @@ public class Dungeon {
      			    if(currentRoom.canMoveNorth == -1)
      			    {
                         rooms[rooms.length - 1].canMoveSouth = currentRoom.id;  
-        				currentRoom.description += "\n There is a room to the south of you";
+        				currentRoom.description += "\nThere is a room to the south of you";
         				
         			    currentRoom.canMoveNorth = rooms[rooms.length - 1].id;
-        				currentRoom.description += "\n There is a room to the north of you";
+        				currentRoom.description += "\nThere is a room to the north of you";
      
      			        foundADirection = true;
      			    }

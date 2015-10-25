@@ -12,10 +12,10 @@ public class Gear{
     public static void main(String[] args){
         
     }
-    
-    public static Gear[] items(){
+ 
+    public static void items(){
         
-        //all items available to the player in the game
+       //all items available to the player in the game
        
         //headgear
         Gear headgear0 = new Gear("a leather helm", "headgear", 0, 1, 0, 0);
@@ -31,7 +31,7 @@ public class Gear{
        
         //Rings
         Gear ring0 = new Gear("a rusted ring", "ring", 0, 1, 0, 0);
-       
+        
         //Leggings
         Gear leggings0 = new Gear("commoner shorts", "leggings", 0, 1, 0, 0);
        
@@ -40,9 +40,7 @@ public class Gear{
        
         //Weapons
         Gear weapon0 = new Gear("a wooden stick", "weapon", 0, 1, 0, 0);
-        
-        return inv;
-    }
+    }    
 }
 
 
