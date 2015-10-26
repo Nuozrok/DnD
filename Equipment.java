@@ -14,4 +14,9 @@ public class Equipment{
     public static void main(String[] args){
         
     }
+    
+    //what the player has equipped
+    public static void equipped(){
+        
+    }
 }

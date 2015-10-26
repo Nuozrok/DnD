@@ -24,7 +24,7 @@ public class Inventory{
         Equipped();
 	}
 	//Inventory
-    public static Gear inv[] = Gear.items();
+    public static Gear.items inv[] = new Gear.items;
     public static void content(){
         inv[0] = Gear.headgear0;
         inv[1] = Gear.chestpiece0;
