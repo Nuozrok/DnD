@@ -24,8 +24,10 @@ public class Inventory{
         Equipped();
 	}
 	//Inventory
-    public static Gear.items inv[] = new Gear.items;
+    public static Gear[] inv = new Gear[10];
     public static void content(){
+        //for testing purposes
+        //to be later put in via Loot.java
         inv[0] = Gear.headgear0;
         inv[1] = Gear.chestpiece0;
         inv[2] = Gear.bracers0;
@@ -88,8 +90,8 @@ public class Inventory{
     //indicates what gear is currently equipped, and applies appropriate stat modifications
     //will be called when items are being equipped in Inventory.java
     public static void Equipped(){
-        Equipment.headgear = Gear.items(null).headgear0;
-        Equipment.chestpiece = Gear.items(null).chestpiece0;
-        Equipment.bracers = Gear.items(null).bracers0;
+        Equipment.headgear = Gear.headgear0;
+        Equipment.chestpiece = Gear.chestpiece0;
+        Equipment.bracers = Gear.bracers0;
     }
 }

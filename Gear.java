@@ -13,34 +13,34 @@ public class Gear{
         
     }
  
-    public static void items(){
+  
         
-       //all items available to the player in the game
+   //all items available to the player in the game
        
-        //headgear
-        Gear headgear0 = new Gear("a leather helm", "headgear", 0, 1, 0, 0);
+    //headgear
+    public static Gear headgear0 = new Gear("a leather helm", "headgear", 0, 1, 0, 0);
        
-        //chestpieces
-        Gear chestpiece0 = new Gear("a ragged tunic", "chestpiece", 0, 1, 0, 0);
+    //chestpieces
+    public static Gear chestpiece0 = new Gear("a ragged tunic", "chestpiece", 0, 1, 0, 0);
        
-        //Bracers
-        Gear bracers0 = new Gear("a cloth wristband", "bracer", 0, 1, 0, 0);
+    //Bracers
+    public static Gear bracers0 = new Gear("a cloth wristband", "bracer", 0, 1, 0, 0);
        
-        //Gloves
-        Gear gloves0 = new Gear("fluffy mittens", "gloves", 0, 1, 0, 0);
+    //Gloves
+    public static Gear gloves0 = new Gear("fluffy mittens", "gloves", 0, 1, 0, 0);
        
-        //Rings
-        Gear ring0 = new Gear("a rusted ring", "ring", 0, 1, 0, 0);
-        
-        //Leggings
-        Gear leggings0 = new Gear("commoner shorts", "leggings", 0, 1, 0, 0);
+    //Rings
+    public static Gear ring0 = new Gear("a rusted ring", "ring", 0, 1, 0, 0);
+    
+    //Leggings
+    public static Gear leggings0 = new Gear("commoner shorts", "leggings", 0, 1, 0, 0);
        
-        //Boots
-        Gear boots0 = new Gear("socks with sandals", "boots", 0, 1, 0, 0);
+    //Boots
+    public static Gear boots0 = new Gear("socks with sandals", "boots", 0, 1, 0, 0);
        
-        //Weapons
-        Gear weapon0 = new Gear("a wooden stick", "weapon", 0, 1, 0, 0);
-    }    
+    //Weapons
+    public static Gear weapon0 = new Gear("a wooden stick", "weapon", 0, 1, 0, 0);
+   
 }
 
 
