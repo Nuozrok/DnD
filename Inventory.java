@@ -3,6 +3,7 @@ import java.io.*;
 
 public class Inventory{
 	public static void main(String[] args) {
+	    content();
 	    Equipped();
 	    //creates array of objects in inventory
         boolean loop = true;
@@ -10,7 +11,7 @@ public class Inventory{
             Gear.main(null);
             Scanner input = new Scanner(System.in);
             System.out.println("====================");
-            System.out.println("Check or equip?");
+            System.out.println("Check, equip, or return?");
             System.out.println("====================");
             String response = input.next(); 
             if(response.equalsIgnoreCase("check")){
@@ -19,9 +20,12 @@ public class Inventory{
             }else if(response.equalsIgnoreCase("equip")){
                 loop = false;
                 equip();
+            }else if(response.equalsIgnoreCase("return")){
+                return;
             }
         }
         Equipped();
+        Inventory.main(null);
 	}
 	//Inventory
     public static Gear[] inv = new Gear[10];
@@ -36,11 +40,9 @@ public class Inventory{
 	public static void checkContent(){
 	    String buffer;
 	    System.out.println("You have:");
-        int counter = 0;
         for (int i = 0; i < inv.length; i ++){
             if (inv[i] != null){
-                System.out.println(inv[counter].name);
-                counter++;
+                System.out.println(inv[i].name);
             }
         }
 	}
@@ -59,12 +61,51 @@ public class Inventory{
 	            loop  = false;
 	            System.out.println("====================");
 	            System.out.println("Which headgear would you like to equip?");
-	            //list headgear currently in inventory, their stats, and what is currently equipped
-                
 	            System.out.println("====================");
-	            
-                TextIO.readStandardInput();
-	            //if choice was x, then equip x and print that x was equipped
+	            //list said gear type currently in inventory, their stats, and what is currently equipped
+                System.out.println("Item name:\t"
+                +"Stat modifiers:\t\t\t"
+                +"Equipped?");
+                for (int i = 0; i < inv.length; i ++){
+                    if (inv[i] != null && inv[i].type == "headgear"){
+                       //print name and tab
+                       System.out.print(inv[i].name +"\t");
+                       //if there is a mod 1, print it and tab
+                       if(inv[i].mod1 != 0){
+                           System.out.print("+"+inv[i].mod1+" "+inv[i].mod1Stat+"\t");
+                           //if no more mods, then tab
+                           if(inv[i].mod2 == 0){
+                               System.out.print("\t\t\t");
+                           }
+                       //if no mods at all, then tab
+                       }else{
+                           System.out.print("\t\t\t");
+                       }
+                       //if there is a mod 2, print it and tab
+                       if(inv[i].mod2 != 0){
+                           System.out.print("+"+inv[i].mod2+" "+inv[i].mod2Stat+"\t");
+                           //if no more mods, then tab
+                           if(inv[i].mod3 == 0){
+                               System.out.print("\t");
+                           }
+                       }
+                       //if there is a mod 3, print and tab
+                       if(inv[i].mod3 != 0){
+                           System.out.print("+"+inv[i].mod2+" "+inv[i].mod2Stat+"\t");
+                           //if no more mods, then tab
+                           if(inv[i].mod3 == 0){
+                               System.out.print("\t");
+                           }
+                       }
+                       //print if it is equippped
+                       if(Equipment.headgear == inv[i]){
+                           System.out.println("yes");
+                       }else{
+                           System.out.println("no");
+                       }
+                    }
+                }
+            //if choice was x, then equip x and print that x was equipped
 	        }else if(response.equalsIgnoreCase("chestpiece")){
 	        
 	        }else if(response.equalsIgnoreCase("bracers")){

@@ -1,7 +1,7 @@
 public class Equipment{
-    String headgear, chestpiece, bracers, gloves, ring, leggings, boots, weapon;
-    public Equipment(String headgear, String chestpiece, String bracers, String gloves,
-        String ring, String leggings, String boots, String weapon){
+    public static Gear headgear, chestpiece, bracers, gloves, ring, leggings, boots, weapon;
+    public Equipment(Gear headgear, Gear chestpiece, Gear bracers, Gear gloves,
+        Gear ring, Gear leggings, Gear boots, Gear weapon){
             this.headgear = headgear;
             this.chestpiece = chestpiece;
             this.bracers = bracers;
