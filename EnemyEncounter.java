@@ -102,7 +102,7 @@ public class EnemyEncounter {
 			if (init == 1) {
 				System.out.println("It's the " + enemy + "'s turn");
 				RNG.D20();
-				if (RNG.num > PlayerStats.AC) {
+				if (RNG.num > 0.2*PlayerStats.AC) {
 					if (RNG.num == 20) {
 						System.out.println("The " + enemy + " rolls " + RNG.num);
 						System.out.println("Critical hit!");
@@ -136,7 +136,7 @@ public class EnemyEncounter {
 							System.exit(0);
 						}
 					}
-				} else if (RNG.num <= PlayerStats.AC) {
+				} else if (RNG.num <= 0.2*PlayerStats.AC) {
 					System.out.println("The " + enemy + " rolls " + RNG.num);
 					System.out.println("The " + enemy + " misses!");
 				}
