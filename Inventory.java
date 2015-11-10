@@ -30,18 +30,59 @@ public class Inventory{
     public static void content(){
         //for testing purposes
         //to be later put in via Loot.java
-        inv[0] = Gear.headgear0;
-        inv[1] = Gear.chestpiece0;
-        inv[2] = Gear.bracers0;
+        //inv[0] = Gear.headgear0;
+        //inv[1] = Gear.chestpiece0;
+        //inv[2] = Gear.bracers0;
     }
     
 	//Print items in your inventroy and their descriptions 
 	public static void checkContent(){
 	    String buffer;
 	    System.out.println("You have:");
+        if(inv[0] == null){
+            System.out.println("Nothing!");
+        }else{
+            System.out.println("Item name:\t"
+            +"Stat modifiers:\t\t\t"
+            +"Equipped?");
+        }
         for (int i = 0; i < inv.length; i ++){
             if (inv[i] != null){
-                System.out.println(inv[i].name +"\t\t" + inv[i].type);
+                //print name and tab
+                System.out.print(inv[i].name +"\t");
+                //if there is a mod 1, print it and tab
+                if(inv[i].mod1 != 0){
+                    System.out.print("+"+inv[i].mod1+" "+inv[i].mod1Stat+"\t");
+                    //if no more mods, then tab
+                    if(inv[i].mod2 == 0){
+                        System.out.print("\t\t\t");
+                    }
+                //if no mods at all, then tab
+                }else{
+                    System.out.print("\t\t\t");
+                }
+                //if there is a mod 2, print it and tab
+                if(inv[i].mod2 != 0){
+                    System.out.print("+"+inv[i].mod2+" "+inv[i].mod2Stat+"\t");
+                    //if no more mods, then tab
+                    if(inv[i].mod3 == 0){
+                        System.out.print("\t");
+                    }
+                }
+                //if there is a mod 3, print and tab
+                if(inv[i].mod3 != 0){
+                    System.out.print("+"+inv[i].mod2+" "+inv[i].mod2Stat+"\t");
+                    //if no more mods, then tab
+                    if(inv[i].mod3 == 0){
+                        System.out.print("\t");
+                   }
+                }
+               //print if it is equippped
+                if(Equipment.headgear == inv[i]){
+                   System.out.println("yes");
+                }else{
+                    System.out.println("no");
+                }
             }
         }
 	}
@@ -108,8 +149,19 @@ public class Inventory{
                             response = input.nextLine();
                             if(response.equalsIgnoreCase(inv[i].name) && inv[i].type == "headgear"){
                                 loop2 = false;
-                                Equipment.headgear = inv[i];
-                                System.out.println(inv[i].name + " was equipped");
+                                //if gear is being swapped
+                                if(Equipment.headgear != null){
+                                    Gear[] buffer = new Gear[1];
+                                    buffer[0] = Equipment.headgear;
+                                    Equipment.headgear = inv[i];
+                                    inv[i] = buffer[0];
+                                    buffer[0] = null;
+                                //if gear is just being equipped to an empty slot    
+                                }else{
+                                    Equipment.headgear = inv[i];
+                                    inv[i] = null;
+                                }    
+                                System.out.println(Equipment.headgear.name + " was equipped");
                                 return;
                             }else{
                                 break;
@@ -174,8 +226,19 @@ public class Inventory{
                             response = input.nextLine();
                             if(response.equalsIgnoreCase(inv[i].name) && inv[i].type == "chestpiece"){
                                 loop2 = false;
-                                Equipment.chestpiece = inv[i];
-                                System.out.println(inv[i].name + " was equipped");
+                                //if gear is being swapped
+                                if(Equipment.chestpiece != null){
+                                    Gear[] buffer = new Gear[1];
+                                    buffer[0] = Equipment.chestpiece;
+                                    Equipment.chestpiece = inv[i];
+                                    inv[i] = buffer[0];
+                                    buffer[0] = null;
+                                //if gear is just being equipped to an empty slot    
+                                }else{
+                                    Equipment.chestpiece = inv[i];
+                                    inv[i] = null;
+                                }
+                                System.out.println(Equipment.chestpiece.name + " was equipped");
                                 return;
                             }else{
                                 break;
@@ -240,8 +303,19 @@ public class Inventory{
                             response = input.nextLine();
                             if(response.equalsIgnoreCase(inv[i].name) && inv[i].type == "bracers"){
                                 loop2 = false;
-                                Equipment.bracers = inv[i];
-                                System.out.println(inv[i].name + " was equipped");
+                                //if gear is being swapped
+                                if(Equipment.bracers != null){
+                                    Gear[] buffer = new Gear[1];
+                                    buffer[0] = Equipment.bracers;
+                                    Equipment.bracers = inv[i];
+                                    inv[i] = buffer[0];
+                                    buffer[0] = null;
+                                //if gear is just being equipped to an empty slot    
+                                }else{
+                                    Equipment.bracers = inv[i];
+                                    inv[i] = null;
+                                }
+                                System.out.println(Equipment.bracers.name + " was equipped");
                                 return;
                             }else{
                                 break;
@@ -306,8 +380,19 @@ public class Inventory{
                             response = input.nextLine();
                             if(response.equalsIgnoreCase(inv[i].name) && inv[i].type == "gloves"){
                                 loop2 = false;
-                                Equipment.gloves = inv[i];
-                                System.out.println(inv[i].name + " was equipped");
+                                //if gear is being swapped
+                                if(Equipment.gloves != null){
+                                    Gear[] buffer = new Gear[1];
+                                    buffer[0] = Equipment.gloves;
+                                    Equipment.gloves = inv[i];
+                                    inv[i] = buffer[0];
+                                    buffer[0] = null;
+                                //if gear is just being equipped to an empty slot    
+                                }else{
+                                    Equipment.gloves = inv[i];
+                                    inv[i] = null;
+                                }
+                                System.out.println(Equipment.gloves.name + " was equipped");
                                 return;
                             }else{
                                 break;
@@ -372,8 +457,19 @@ public class Inventory{
                             response = input.nextLine();
                             if(response.equalsIgnoreCase(inv[i].name) && inv[i].type == "ring"){
                                 loop2 = false;
-                                Equipment.ring = inv[i];
-                                System.out.println(inv[i].name + " was equipped");
+                                //if gear is being swapped
+                                if(Equipment.ring != null){
+                                    Gear[] buffer = new Gear[1];
+                                    buffer[0] = Equipment.ring;
+                                    Equipment.ring = inv[i];
+                                    inv[i] = buffer[0];
+                                    buffer[0] = null;
+                                //if gear is just being equipped to an empty slot    
+                                }else{
+                                    Equipment.ring = inv[i];
+                                    inv[i] = null;
+                                }
+                                System.out.println(Equipment.ring.name + " was equipped");
                                 return;
                             }else{
                                 break;
@@ -438,8 +534,19 @@ public class Inventory{
                             response = input.nextLine();
                             if(response.equalsIgnoreCase(inv[i].name) && inv[i].type == "leggings"){
                                 loop2 = false;
-                                Equipment.leggings = inv[i];
-                                System.out.println(inv[i].name + " was equipped");
+                                //if gear is being swapped
+                                if(Equipment.leggings != null){
+                                    Gear[] buffer = new Gear[1];
+                                    buffer[0] = Equipment.leggings;
+                                    Equipment.leggings = inv[i];
+                                    inv[i] = buffer[0];
+                                    buffer[0] = null;
+                                //if gear is just being equipped to an empty slot    
+                                }else{
+                                    Equipment.leggings = inv[i];
+                                    inv[i] = null;
+                                }
+                                System.out.println(Equipment.leggings.name + " was equipped");
                                 return;
                             }else{
                                 break;
@@ -504,8 +611,19 @@ public class Inventory{
                             response = input.nextLine();
                             if(response.equalsIgnoreCase(inv[i].name) && inv[i].type == "boots"){
                                 loop2 = false;
-                                Equipment.boots = inv[i];
-                                System.out.println(inv[i].name + " was equipped");
+                                //if gear is being swapped
+                                if(Equipment.boots != null){
+                                    Gear[] buffer = new Gear[1];
+                                    buffer[0] = Equipment.boots;
+                                    Equipment.boots = inv[i];
+                                    inv[i] = buffer[0];
+                                    buffer[0] = null;
+                                //if gear is just being equipped to an empty slot    
+                                }else{
+                                    Equipment.boots = inv[i];
+                                    inv[i] = null;
+                                }
+                                System.out.println(Equipment.boots.name + " was equipped");
                                 return;
                             }else{
                                 break;
@@ -570,8 +688,19 @@ public class Inventory{
                             response = input.nextLine();
                             if(response.equalsIgnoreCase(inv[i].name) && inv[i].type == "weapon"){
                                 loop2 = false;
-                                Equipment.weapon = inv[i];
-                                System.out.println(inv[i].name + " was equipped");
+                                //if gear is being swapped
+                                if(Equipment.weapon != null){
+                                    Gear[] buffer = new Gear[1];
+                                    buffer[0] = Equipment.weapon;
+                                    Equipment.weapon = inv[i];
+                                    inv[i] = buffer[0];
+                                    buffer[0] = null;
+                                //if gear is just being equipped to an empty slot    
+                                }else{
+                                    Equipment.weapon = inv[i];
+                                    inv[i] = null;
+                                }
+                                System.out.println(Equipment.weapon.name + " was equipped");
                                 return;
                             }else{
                                 break;
