@@ -18,6 +18,8 @@ public class Inventory{
             }else if(response.equalsIgnoreCase("equip")){
                 loop = false;
                 equip();
+                unApplyStats();
+                applyStats();
             }else if(response.equalsIgnoreCase("return")){
                 loop = false;
                 return;
@@ -717,6 +719,390 @@ public class Inventory{
 	            loop1 = false;
 	            return;
 	        }         
+	    }
+	}
+	//reset stats from unequiping old gear
+	public static void unApplyStats(){
+	    PlayerStats.DEX = PlayerStats.dDEX;
+	    PlayerStats.HP = PlayerStats.dHP;
+	    PlayerStats.totalHP = PlayerStats.dTotalHP;
+    	PlayerStats.AC = PlayerStats.dAC;
+	    PlayerStats.STR = PlayerStats.dSTR;
+    	PlayerStats.INT = PlayerStats.dINT;
+    	PlayerStats.MP = PlayerStats.dMP;
+    	PlayerStats.totalMP = PlayerStats.dTotalMP;
+	}
+	
+	//apply stats to player when gear is Equipped
+	public static void applyStats(){
+	    //if something is equipped
+	    //headgear
+	    if(Equipment.headgear != null){
+	       //check each modification and apply it to the appropriate stat
+	       if(!Equipment.headgear.mod1Stat.equalsIgnoreCase("null")){
+	           if(Equipment.headgear.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.headgear.mod1;
+	           }
+	           if(Equipment.headgear.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.headgear.mod1;
+	           }
+	           if(Equipment.headgear.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.headgear.mod1;
+	           }
+	           if(Equipment.headgear.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.headgear.mod1;
+	           }
+	       }
+	       if(!Equipment.headgear.mod2Stat.equalsIgnoreCase("null")){
+	           if(Equipment.headgear.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.headgear.mod2;
+	           }
+	           if(Equipment.headgear.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.headgear.mod2;
+	           }
+	           if(Equipment.headgear.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.headgear.mod2;
+	           }
+	           if(Equipment.headgear.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.headgear.mod2;
+	           }
+	       }
+	       if(!Equipment.headgear.mod3Stat.equalsIgnoreCase("null")){
+	           if(Equipment.headgear.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.headgear.mod3;
+	           }
+	           if(Equipment.headgear.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.headgear.mod3;
+	           }
+	           if(Equipment.headgear.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.headgear.mod3;
+	           }
+	           if(Equipment.headgear.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.headgear.mod3;
+	           }
+	       }
+	    }
+	    //chestpiece
+	    if(Equipment.chestpiece != null){
+	       //check each modification and apply it to the appropriate stat
+	       if(!Equipment.chestpiece.mod1Stat.equalsIgnoreCase("null")){
+	           if(Equipment.chestpiece.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.chestpiece.mod1;
+	           }
+	           if(Equipment.chestpiece.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.chestpiece.mod1;
+	           }
+	           if(Equipment.chestpiece.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.chestpiece.mod1;
+	           }
+	           if(Equipment.chestpiece.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.chestpiece.mod1;
+	           }
+	       }
+	       if(!Equipment.chestpiece.mod2Stat.equalsIgnoreCase("null")){
+	           if(Equipment.chestpiece.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.chestpiece.mod2;
+	           }
+	           if(Equipment.chestpiece.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.chestpiece.mod2;
+	           }
+	           if(Equipment.chestpiece.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.chestpiece.mod2;
+	           }
+	           if(Equipment.chestpiece.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.chestpiece.mod2;
+	           }
+	       }
+	       if(!Equipment.chestpiece.mod3Stat.equalsIgnoreCase("null")){
+	           if(Equipment.headgear.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.chestpiece.mod3;
+	           }
+	           if(Equipment.chestpiece.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.chestpiece.mod3;
+	           }
+	           if(Equipment.chestpiece.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.chestpiece.mod3;
+	           }
+	           if(Equipment.chestpiece.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.chestpiece.mod3;
+	           }
+	       }
+	    }
+	    //bracers
+	    if(Equipment.bracers != null){
+	       //check each modification and apply it to the appropriate stat
+	       if(!Equipment.bracers.mod1Stat.equalsIgnoreCase("null")){
+	           if(Equipment.bracers.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.bracers.mod1;
+	           }
+	           if(Equipment.bracers.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.bracers.mod1;
+	           }
+	           if(Equipment.bracers.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.bracers.mod1;
+	           }
+	           if(Equipment.bracers.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.bracers.mod1;
+	           }
+	       }
+	       if(!Equipment.bracers.mod2Stat.equalsIgnoreCase("null")){
+	           if(Equipment.bracers.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.bracers.mod2;
+	           }
+	           if(Equipment.bracers.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.bracers.mod2;
+	           }
+	           if(Equipment.bracers.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.bracers.mod2;
+	           }
+	           if(Equipment.bracers.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.bracers.mod2;
+	           }
+	       }
+	       if(!Equipment.bracers.mod3Stat.equalsIgnoreCase("null")){
+	           if(Equipment.bracers.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.bracers.mod3;
+	           }
+	           if(Equipment.bracers.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.bracers.mod3;
+	           }
+	           if(Equipment.bracers.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.bracers.mod3;
+	           }
+	           if(Equipment.bracers.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.bracers.mod3;
+	           }
+	       }
+	    }
+	    //gloves
+	    if(Equipment.gloves != null){
+	       //check each modification and apply it to the appropriate stat
+	       if(!Equipment.gloves.mod1Stat.equalsIgnoreCase("null")){
+	           if(Equipment.gloves.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.gloves.mod1;
+	           }
+	           if(Equipment.gloves.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.gloves.mod1;
+	           }
+	           if(Equipment.gloves.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.gloves.mod1;
+	           }
+	           if(Equipment.gloves.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.gloves.mod1;
+	           }
+	       }
+	       if(!Equipment.gloves.mod2Stat.equalsIgnoreCase("null")){
+	           if(Equipment.gloves.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.gloves.mod2;
+	           }
+	           if(Equipment.gloves.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.gloves.mod2;
+	           }
+	           if(Equipment.gloves.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.gloves.mod2;
+	           }
+	           if(Equipment.gloves.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.gloves.mod2;
+	           }
+	       }
+	       if(!Equipment.gloves.mod3Stat.equalsIgnoreCase("null")){
+	           if(Equipment.gloves.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.gloves.mod3;
+	           }
+	           if(Equipment.gloves.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.gloves.mod3;
+	           }
+	           if(Equipment.gloves.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.gloves.mod3;
+	           }
+	           if(Equipment.gloves.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.gloves.mod3;
+	           }
+	       }
+	    }
+	    //ring
+	    if(Equipment.ring != null){
+	       //check each modification and apply it to the appropriate stat
+	       if(!Equipment.ring.mod1Stat.equalsIgnoreCase("null")){
+	           if(Equipment.ring.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.ring.mod1;
+	           }
+	           if(Equipment.ring.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.ring.mod1;
+	           }
+	           if(Equipment.ring.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.ring.mod1;
+	           }
+	           if(Equipment.ring.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.ring.mod1;
+	           }
+	       }
+	       if(!Equipment.ring.mod2Stat.equalsIgnoreCase("null")){
+	           if(Equipment.ring.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.ring.mod2;
+	           }
+	           if(Equipment.ring.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.ring.mod2;
+	           }
+	           if(Equipment.ring.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.ring.mod2;
+	           }
+	           if(Equipment.ring.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.ring.mod2;
+	           }
+	       }
+	       if(!Equipment.ring.mod3Stat.equalsIgnoreCase("null")){
+	           if(Equipment.ring.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.ring.mod3;
+	           }
+	           if(Equipment.ring.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.ring.mod3;
+	           }
+	           if(Equipment.ring.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.ring.mod3;
+	           }
+	           if(Equipment.ring.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.ring.mod3;
+	           }
+	       }
+	    }
+	    //leggings
+	    if(Equipment.leggings != null){
+	       //check each modification and apply it to the appropriate stat
+	       if(!Equipment.leggings.mod1Stat.equalsIgnoreCase("null")){
+	           if(Equipment.leggings.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.leggings.mod1;
+	           }
+	           if(Equipment.leggings.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.leggings.mod1;
+	           }
+	           if(Equipment.leggings.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.leggings.mod1;
+	           }
+	           if(Equipment.leggings.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.leggings.mod1;
+	           }
+	       }
+	       if(!Equipment.leggings.mod2Stat.equalsIgnoreCase("null")){
+	           if(Equipment.leggings.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.leggings.mod2;
+	           }
+	           if(Equipment.leggings.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.leggings.mod2;
+	           }
+	           if(Equipment.leggings.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.leggings.mod2;
+	           }
+	           if(Equipment.leggings.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.leggings.mod2;
+	           }
+	       }
+	       if(!Equipment.leggings.mod3Stat.equalsIgnoreCase("null")){
+	           if(Equipment.leggings.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.leggings.mod3;
+	           }
+	           if(Equipment.leggings.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.leggings.mod3;
+	           }
+	           if(Equipment.leggings.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.leggings.mod3;
+	           }
+	           if(Equipment.leggings.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.leggings.mod3;
+	           }
+	       }
+	    }
+	    //boots
+	    if(Equipment.boots != null){
+	       //check each modification and apply it to the appropriate stat
+	       if(!Equipment.boots.mod1Stat.equalsIgnoreCase("null")){
+	           if(Equipment.boots.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.boots.mod1;
+	           }
+	           if(Equipment.boots.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.boots.mod1;
+	           }
+	           if(Equipment.boots.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.boots.mod1;
+	           }
+	           if(Equipment.boots.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.boots.mod1;
+	           }
+	       }
+	       if(!Equipment.boots.mod2Stat.equalsIgnoreCase("null")){
+	           if(Equipment.boots.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.boots.mod2;
+	           }
+	           if(Equipment.boots.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.boots.mod2;
+	           }
+	           if(Equipment.boots.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.boots.mod2;
+	           }
+	           if(Equipment.boots.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.boots.mod2;
+	           }
+	       }
+	       if(!Equipment.boots.mod3Stat.equalsIgnoreCase("null")){
+	           if(Equipment.boots.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.boots.mod3;
+	           }
+	           if(Equipment.boots.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.boots.mod3;
+	           }
+	           if(Equipment.boots.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.boots.mod3;
+	           }
+	           if(Equipment.boots.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.boots.mod3;
+	           }
+	       }
+	    }
+	    //weapon
+	    if(Equipment.weapon != null){
+	       //check each modification and apply it to the appropriate stat
+	       if(!Equipment.weapon.mod1Stat.equalsIgnoreCase("null")){
+	           if(Equipment.weapon.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.weapon.mod1;
+	           }
+	           if(Equipment.weapon.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.weapon.mod1;
+	           }
+	           if(Equipment.weapon.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.weapon.mod1;
+	           }
+	           if(Equipment.weapon.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.weapon.mod1;
+	           }
+	       }
+	       if(!Equipment.weapon.mod2Stat.equalsIgnoreCase("null")){
+	           if(Equipment.weapon.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.weapon.mod2;
+	           }
+	           if(Equipment.weapon.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.weapon.mod2;
+	           }
+	           if(Equipment.weapon.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.weapon.mod2;
+	           }
+	           if(Equipment.weapon.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.weapon.mod2;
+	           }
+	       }
+	       if(!Equipment.weapon.mod3Stat.equalsIgnoreCase("null")){
+	           if(Equipment.weapon.mod1Stat.equals("DEX")){
+	            PlayerStats.DEX += Equipment.weapon.mod3;
+	           }
+	           if(Equipment.weapon.mod1Stat.equals("AC")){
+	            PlayerStats.AC += Equipment.weapon.mod3;
+	           }
+	           if(Equipment.weapon.mod1Stat.equals("STR")){
+	            PlayerStats.STR += Equipment.weapon.mod3;
+	           }
+	           if(Equipment.weapon.mod1Stat.equals("INT")){
+	            PlayerStats.INT += Equipment.weapon.mod3;
+	           }
+	       }
 	    }
 	}
 }

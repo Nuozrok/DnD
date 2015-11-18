@@ -19,15 +19,19 @@ public class PlayerStats {
 	            Scanner input = new Scanner(System.in);
 	            String response = input.nextLine().toLowerCase();
 	            if(response.equals("dex") || response.equals("dexterity")){
+	                dDEX += 1;
 	                DEX += 1;
 	                loop = false;
 	            }else if(response.equals("ac") || response.equals("armour class")){
-	                AC += 1;
+	                dAC += 1;
+	                AC +=1;
 	                loop = false;
 	            }else if(response.equals("str") || response.equals("strength")){
+	                dSTR += 1;
 	                STR += 1;
 	                loop = false;
 	            }else if(response.equals("int") || response.equals("intelligence")){
+	                dINT += 1;
 	                INT += 1;
 	                loop = false;
 	            }
@@ -36,6 +40,16 @@ public class PlayerStats {
 	                +"\nINT\t\t" +INT);
 	    }
 	}
+	//Default Stats (not modified by equipment. set in firstroom.java)
+	public static int dDEX;
+	public static int dHP;
+	public static int dTotalHP;
+	public static int dAC;
+	public static int dSTR;
+	public static int dINT;
+	public static int dMP;
+	public static int dTotalMP;
+	
 	//Stats
 	public static int DEX;
 	public static int HP;

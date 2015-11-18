@@ -56,11 +56,11 @@ public class FirstRoom{
 			    	System.out.print("You roll: ");
 			    	RNG.Roll(4);
 			    	if (race.equals("halfling")){
-			    	    PlayerStats.DEX = RNG.num + 2;
+			    	    PlayerStats.dDEX = RNG.num + 2;
 			    	}else if(race.equals("elf")){
-			    	    PlayerStats.DEX = RNG.num - 2;
+			    	    PlayerStats.dDEX = RNG.num - 2;
 			    	}else{
-			    	    PlayerStats.DEX = RNG.num;
+			    	    PlayerStats.dDEX = RNG.num;
 			    	}
 			    }
 			}    
@@ -76,11 +76,11 @@ public class FirstRoom{
 		    		System.out.print("You roll: ");
 		    		RNG.Roll(4);
 		    		if (race.equals("dwarf")){
-		    		    PlayerStats.AC = RNG.num + 2;
+		    		    PlayerStats.dAC = RNG.num + 2;
 		    		}else if(race.equals("orc")){
-		    		    PlayerStats.AC = RNG.num - 2;
+		    		    PlayerStats.dAC = RNG.num - 2;
 		    		}else{
-		    		    PlayerStats.AC = RNG.num;
+		    		    PlayerStats.dAC = RNG.num;
 		    		}
 		    	}
 			}
@@ -96,11 +96,11 @@ public class FirstRoom{
 		    		System.out.print("You roll: ");
 		    		RNG.Roll(4);
 		    		if (race.equals("orc")){
-		    		    PlayerStats.STR = RNG.num + 4;
+		    		    PlayerStats.dSTR = RNG.num + 4;
 		    		}else if(race.equals("halfling")){
-		    		    PlayerStats.STR = RNG.num - 2;
+		    		    PlayerStats.dSTR = RNG.num - 2;
 		    		}else{
-		    		    PlayerStats.STR = RNG.num;
+		    		    PlayerStats.dSTR = RNG.num;
 			    	}
 			    }
 			}
@@ -116,36 +116,46 @@ public class FirstRoom{
 			    	System.out.print("You roll: ");
 			    	RNG.Roll(4);
 			    	if (race.equals("elf")){
-			    	    PlayerStats.INT = RNG.num + 2;
+			    	    PlayerStats.dINT = RNG.num + 2;
 			    	}else if(race.equals("dwarf") || race.equals("orc")){
-			    	    PlayerStats.INT = RNG.num - 2;
+			    	    PlayerStats.dINT = RNG.num - 2;
 			    	}else{
-			    	    PlayerStats.INT = RNG.num;
+			    	    PlayerStats.dINT = RNG.num;
 			    	}
 			    }
 			}
         }
         //Sets minimum value of all stats to 0
-	    if(PlayerStats.DEX < 0){
-	        PlayerStats.DEX = 0;
+	    if(PlayerStats.dDEX < 0){
+	        PlayerStats.dDEX = 0;
 	    }
-	    if(PlayerStats.AC < 0){
-	        PlayerStats.AC = 0;
+	    if(PlayerStats.dAC < 0){
+	        PlayerStats.dAC = 0;
 	    }
-	    if(PlayerStats.STR < 0){
-	        PlayerStats.STR = 0;
+	    if(PlayerStats.dSTR < 0){
+	        PlayerStats.dSTR = 0;
 	    }
-	    if(PlayerStats.INT < 0){
-	        PlayerStats.INT = 0;
+	    if(PlayerStats.dINT < 0){
+	        PlayerStats.dINT = 0;
 	    }
 	    
 	    //Set HP & MP
-	    PlayerStats.HP = 20 + PlayerStats.DEX;
-	    PlayerStats.MP = 20 + PlayerStats.INT;
-	    PlayerStats.totalMP = PlayerStats.MP;
-	    PlayerStats.totalHP = PlayerStats.HP;
-        System.out.println("You are a(n) " +race+ " with " +PlayerStats.DEX+ " dexterity, " +PlayerStats.AC
-            + " armour class, " +PlayerStats.STR+ " strength, " +PlayerStats.INT+ " intelligence, " 
-            + PlayerStats.totalHP+ " total health, and " +PlayerStats.totalMP+ " total mana.");
+	    PlayerStats.dHP = 20 + PlayerStats.dDEX;
+	    PlayerStats.dMP = 20 + PlayerStats.dINT;
+	    PlayerStats.dTotalMP = PlayerStats.dMP;
+	    PlayerStats.dTotalHP = PlayerStats.dHP;
+        System.out.println("You are a(n) " +race+ " with " +PlayerStats.dDEX+ " dexterity, " +PlayerStats.dAC
+            + " armour class, " +PlayerStats.dSTR+ " strength, " +PlayerStats.dINT+ " intelligence, " 
+            + PlayerStats.dTotalHP+ " total health, and " +PlayerStats.dTotalMP+ " total mana.");
+        
+        //Set starting stats to default stats   
+        PlayerStats.DEX = PlayerStats.dDEX;
+	    PlayerStats.HP = PlayerStats.dHP;
+	    PlayerStats.totalHP = PlayerStats.dTotalHP;
+    	PlayerStats.AC = PlayerStats.dAC;
+	    PlayerStats.STR = PlayerStats.dSTR;
+    	PlayerStats.INT = PlayerStats.dINT;
+    	PlayerStats.MP = PlayerStats.dMP;
+    	PlayerStats.totalMP = PlayerStats.dTotalMP;
     }
 }

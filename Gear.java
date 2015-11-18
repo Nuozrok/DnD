@@ -18,16 +18,18 @@ public class Gear{
  
   
         
-   //all items available to the player in the game
+    //all items available to the player in the game
+    
+    //WHEN ADDING GEAR EDIT LOOT.JAVA APPROPRIATELY
        
     //headgear
     public static Gear headgear0 = new Gear("leather helm", "headgear", 0, 1, "AC",  0, "null", 0, "null");
        
     //chestpieces
-    public static Gear chestpiece0 = new Gear("ragged tunic", "chestpiece", 0, 1, "AC",  2, "test", 0, "null");
+    public static Gear chestpiece0 = new Gear("ragged tunic", "chestpiece", 0, 1, "AC",  0, "null", 0, "null");
        
     //Bracers
-    public static Gear bracers0 = new Gear("cloth wristband", "bracers", 0, 1, "AC",  2, "test", 4, "test");
+    public static Gear bracers0 = new Gear("cloth wristband", "bracers", 0, 1, "AC",  0, "null", 0, "null");
        
     //Gloves
     public static Gear gloves0 = new Gear("fluffy mittens", "gloves", 0, 1, "AC",  0, "null", 0, "null");
