@@ -5,15 +5,19 @@ public class Dungeon {
 
     public static Room playerRoom;
 	public static int maxRooms = 9;
-	
 	public static Room[] rooms = new Room[maxRooms];
     public static Room currentRoom = new Room();
 	
 	public static void main(String[] args) {
-
 	    Start();
-	    //FirstRoom.main(null);
-	    Content();
+	    FirstRoom.main(null);
+	    //temporary route directly to EnemyEncounter
+	    //EnemyEncounter.main(null);
+
+	    //loop until end of program
+	    while(true){
+	        Content();
+	    }
     }
 
 	// create first room
@@ -21,10 +25,9 @@ public class Dungeon {
 	    playerRoom = currentRoom;
 		currentRoom.id = 0;
 		rooms[0] = currentRoom;
-		Generate();
+
 	}
 	
-
 	// adds another room to the maze
 	public static void Generate() {
 
@@ -46,8 +49,8 @@ public class Dungeon {
     			    {
         			    // forward door
         				rooms[rooms.length - 1].canMoveNorth = currentRoom.id;
-        				currentRoom.description += "\nThere is a room to the north of you";  
-        				
+        				currentRoom.description += "\nThere is a room to the north of you";
+
         				// backwards door
                         currentRoom.canMoveSouth = rooms[rooms.length - 1].id;
         				currentRoom.description += "\nThere is a room to the south of you";
@@ -58,9 +61,9 @@ public class Dungeon {
     			case 2:
     			    if(currentRoom.canMoveWest == -1)
     			    {
-                        rooms[rooms.length - 1].canMoveEast = currentRoom.id; 
+                        rooms[rooms.length - 1].canMoveEast = currentRoom.id;
         				currentRoom.description += "\nThere is a room to the east of you";
-        				
+
                         currentRoom.canMoveWest = rooms[rooms.length - 1].id;
         				currentRoom.description += "\nThere is a room to the west of you";
     		        	foundADirection = true;
@@ -71,9 +74,9 @@ public class Dungeon {
 			        {
                         rooms[rooms.length - 1].canMoveWest = currentRoom.id;
         				currentRoom.description += "\nThere is a room to the east of you";
-        				
+
                         currentRoom.canMoveEast = rooms[rooms.length - 1].id;
-        				currentRoom.description += "\nThere is a room to the west of you";    			
+        				currentRoom.description += "\nThere is a room to the west of you"; 
 			            foundADirection = true;
 			        }
     				break;
@@ -82,16 +85,18 @@ public class Dungeon {
      			    {
                         rooms[rooms.length - 1].canMoveSouth = currentRoom.id;  
         				currentRoom.description += "\nThere is a room to the south of you";
-        				
+
         			    currentRoom.canMoveNorth = rooms[rooms.length - 1].id;
         				currentRoom.description += "\nThere is a room to the north of you";
-     
+
      			        foundADirection = true;
      			    }
     				break;
     			}	
-    			}
-			
+    		}
+    		System.out.println("====================");
+    		System.out.println(currentRoom.description);
+    		System.out.println("====================");
 	}
 	//
 
@@ -130,11 +135,13 @@ public class Dungeon {
             System.out.println("Walking westward");
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);
+            
         }
         else{
-            System.out.println("You discover a new area");
-            Generate();
-            changeRoom();
+            System.out.println("====================");
+    		System.out.println(currentRoom.description);
+    		System.out.println("====================");
+    		changeRoom();
         }
         
 	}
@@ -148,10 +155,10 @@ public class Dungeon {
 			EnemyEncounter.main(null);
 			
 		} else if (RNG.num > 75 && RNG.num <= 90) {
-		    System.out.println("Doesn't seem to be anything here");
+		    System.out.println("Doesn't seem to be anything special here");
 			changeRoom();
 		} else if (RNG.num > 90 && RNG.num <= 100) {
-				Generate();
+			Generate();
 			changeRoom();
 			Loot.main(null);
 		}

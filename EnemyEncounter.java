@@ -15,7 +15,6 @@ public class EnemyEncounter {
 		// Checks to see if you leveled up
 		Experience();
 		PlayerStats.main(null);
-		System.exit(0);
 	}
 
 	// Initiative
@@ -34,7 +33,6 @@ public class EnemyEncounter {
 				System.out.print("You roll: ");
 				RNG.Roll(20);
 				playerInit = RNG.num;
-				;
 			}
 		}
 		System.out.print("The " + enemy + " rolls: ");

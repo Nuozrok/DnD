@@ -39,7 +39,7 @@ public class FirstRoom{
             }
         }
         //temporary connection from first room to a fight
-        EnemyEncounter.main(null);
+        //EnemyEncounter.main(null);
     }    
     public static void RollStats(String race){
         boolean loop = true;

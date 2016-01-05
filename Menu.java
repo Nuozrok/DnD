@@ -9,8 +9,7 @@ public class Menu {
      
         boolean loop1 = true;
         while (loop1 = true) {
-            String response = input.nextLine().toLowerCase();
-            if (response.equals("start")) {
+            if (input.nextLine().toLowerCase().equals("start")) {
                 Dungeon.main(null);
                 loop1 = false;
             }else{
