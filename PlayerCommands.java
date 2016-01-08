@@ -4,12 +4,12 @@ public class PlayerCommands{
 	public static Scanner input = new Scanner(System.in);
 	
 	public static void main(String[] args) {
-		Commands();
+		commands();
 	}
 	
 	
 	//Commands
-	public static void Commands(){
+	public static void commands(){
 		String command = (input.nextLine().toLowerCase());
 		if(command.equals("stats")){
 			System.out.println("You have:\n"+PlayerStats.AC +" AC\n"+

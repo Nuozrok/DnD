@@ -9,7 +9,7 @@ public class Dungeon {
     public static Room currentRoom = new Room();
 	
 	public static void main(String[] args) {
-	    Start();
+	    start();
 	    FirstRoom.main(null);
 	    //temporary route directly to EnemyEncounter
 	    //EnemyEncounter.main(null);
@@ -21,15 +21,14 @@ public class Dungeon {
     }
 
 	// create first room
-	public static void Start() {
+	public static void start() {
 	    playerRoom = currentRoom;
 		currentRoom.id = 0;
 		rooms[0] = currentRoom;
-
 	}
 	
 	// adds another room to the maze
-	public static void Generate() {
+	public static void generate() {
 
       		// 1. create a room
       		currentRoom = new Room();
@@ -88,7 +87,6 @@ public class Dungeon {
 
         			    currentRoom.canMoveNorth = rooms[rooms.length - 1].id;
         				currentRoom.description += "\nThere is a room to the north of you";
-
      			        foundADirection = true;
      			    }
     				break;
@@ -115,7 +113,6 @@ public class Dungeon {
         }
         else if(selectedRoom.equalsIgnoreCase("South") && currentRoom.canMoveSouth != -1)
         {
-            
             int id = currentRoom.canMoveSouth;
             System.out.println("Walking southward");
             currentRoom = rooms[id];
@@ -130,12 +127,10 @@ public class Dungeon {
         }
         else if(selectedRoom.equalsIgnoreCase("West") && currentRoom.canMoveWest != -1)
         {
-            
             int id = currentRoom.canMoveWest;
             System.out.println("Walking westward");
             currentRoom = rooms[id];
             System.out.println(currentRoom.description);
-            
         }
         else{
             System.out.println("====================");
@@ -150,15 +145,15 @@ public class Dungeon {
 	public static void Content() {
 		RNG.D100();
 		if (RNG.num <= 75) {
-			Generate();
+			generate();
 			changeRoom();
 			EnemyEncounter.main(null);
-			
 		} else if (RNG.num > 75 && RNG.num <= 90) {
 		    System.out.println("Doesn't seem to be anything special here");
+		    generate();
 			changeRoom();
 		} else if (RNG.num > 90 && RNG.num <= 100) {
-			Generate();
+			generate();
 			changeRoom();
 			Loot.main(null);
 		}

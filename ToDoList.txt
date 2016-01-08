@@ -6,3 +6,7 @@ instructions
 score
 scoreboard
 diversify EnemyEncounter
+player.txt for save files
+A UI and (maybe pixel?) animation to go along with the console
+    user should be able to change font and color of text to their liking
+    

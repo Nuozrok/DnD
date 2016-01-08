@@ -6,14 +6,14 @@ public class EnemyEncounter {
 
 	public static void main(String[] args) {
 		PlayerStats.main(null);
-		Enemy();
+		enemy();
 		System.out.println("You are attacked by a(n) " + enemy + "!");
-		Stats();
-		Initiative();
-		Combat();
+		stats();
+		initiative();
+		combat();
 		System.out.println("Victory!");
 		// Checks to see if you leveled up
-		Experience();
+		experience();
 		PlayerStats.main(null);
 	}
 
@@ -22,7 +22,7 @@ public class EnemyEncounter {
 	public static int enemyInit;
 	public static int init;
 
-	public static void Initiative() {
+	public static void initiative() {
 		boolean loop = true;
 		while (loop == true) {
 			System.out.println("====================");
@@ -49,7 +49,7 @@ public class EnemyEncounter {
 	public static boolean combat;
 	public static int DMG;
 
-	public static void Combat() {
+	public static void combat() {
 		combat = true;
 		while (combat = true) {
 			// player's move
@@ -72,7 +72,7 @@ public class EnemyEncounter {
 							response = input.nextLine().toLowerCase();
 							if (response.equals("roll")) {
 								loop2 = false;
-								Attack();
+								attack();
 								// if enemy dies
 								if (HP <= 0) {
 									System.out.println("You have slain the " + enemy + "!");
@@ -80,12 +80,12 @@ public class EnemyEncounter {
 									return;
 								}
 							} else if (response.equals("back")) {
-								Combat();
+								combat();
 							}
 						}
 					} else if (response.equals("magic")) {
 						loop1 = false;
-						Magic();
+						magic();
 						// if enemy dies
 						if (HP <= 0) {
 							System.out.println("You have slain the " + enemy + "!");
@@ -144,7 +144,7 @@ public class EnemyEncounter {
 		return;
 	}
 
-	public static void Attack() {
+	public static void attack() {
 		RNG.D20();
 		if (RNG.num > AC) {
 			if (RNG.num == 20) {
@@ -192,7 +192,7 @@ public class EnemyEncounter {
 		}
 	}
 
-	public static void Magic() {
+	public static void magic() {
 		System.out.println("You have " +PlayerStats.MP+ "/" +PlayerStats.totalMP+" MP");
 		System.out.println("What would you like to cast?");
 		Spells.CanCast();
@@ -206,14 +206,14 @@ public class EnemyEncounter {
 	public static String enemy;
 
     //Enemies in caps are bosses
-	public static void Enemy(){
+	public static void enemy(){
 		enemy = null;
 		while(enemy == null){
-		        SpawnEnemy();
+		        spawnEnemy();
 		}
 	}
 	//Spawn Enemy based on player level and randomly choose enemy, or the "boss"
-    public static void SpawnEnemy(){
+    public static void spawnEnemy(){
         RNG.D100();
         if(PlayerStats.LVL <= 2){
             if(RNG.num <= 90){
@@ -258,7 +258,7 @@ public class EnemyEncounter {
 	public static int STR;
 	public static int INT;
 
-	public static void Stats(){
+	public static void stats(){
 	    if(enemy.equals("imp")){
 	        DEX = RNG.D4();
 		    HP = 5 + DEX;
@@ -338,7 +338,7 @@ public class EnemyEncounter {
 	//
 
     //How much experience is given when the enemy is slain
-    public static void Experience(){
+    public static void experience(){
         PlayerStats.currentEXP += (12*AC + 8*totalHP);
         System.out.println("You gained " +(12*AC + 8*totalHP)+ " experience!");
     }

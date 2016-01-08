@@ -13,7 +13,7 @@ public class FirstRoom{
             System.out.println("But who are you?");
             System.out.println("What is your race?");
             System.out.println("Human\t\tNo bonus, no penalty\t\tA boring people with " 
-                +"nothing much to gain or lose\nDwarf\t\t+2AC, -2INT\t\t\tSkillful armoursmiths "
+                +"nothing much to gain nor lose\nDwarf\t\t+2AC, -2INT\t\t\tSkillful armoursmiths "
                 +"lacking rational thinking\nHalfling\t+2DEX, -2STR\t\t\tA small people with "
                 +"big hearts and tiny fists\nElf\t\t+2INT, -2DEX\t\t\tNoblemen and scholars with "
                 +"fragile bodies\nOrc\t\t+4STR, -2INT, -2AC\t\tBrute barbarians equipped with unkempt gear");
