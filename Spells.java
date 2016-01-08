@@ -6,7 +6,7 @@ public class Spells {
 	
 	}
 	//Spells
-	public static void Heal(){
+	public static void heal(){
 		boolean loop = true;
 		while(loop == true){
 			System.out.println("====================");
@@ -27,7 +27,7 @@ public class Spells {
 			}
 		}
 	}
-	public static void Fireball(){
+	public static void fireball(){
 		System.out.println("You shoot a fireball");
 		boolean loop1 = true;
 		while(loop1 == true){
@@ -72,7 +72,7 @@ public class Spells {
 	//
 	
 	//CanCast?
-	public static void CanCast(){
+	public static void canCast(){
 		System.out.println("You know how to cast:");
 		System.out.println("====================");
 		if(PlayerStats.INT >= 1){
@@ -87,29 +87,29 @@ public class Spells {
 	//
 	
 	//Casting
-	public static void Casting(){
+	public static void casting(){
 		boolean loop = true;
 		while(loop == true){
 		String response = input.nextLine().toLowerCase();	
 			if(response.equals("heal") && PlayerStats.INT >= 1 && PlayerStats.MP >= 5){
 				loop = false;
-				Heal();
+				heal();
                 PlayerStats.MP -= 5;
 			}else if(response.equals("heal") && PlayerStats.INT >= 1 && PlayerStats.MP < 5){
 			    loop = false;
 			    System.out.println("Insufficient mana!");
-			    CanCast();
+			    canCast();
 			}else if(response.equals("fireball") && PlayerStats.INT >= 4 && PlayerStats.MP >= 7){
 				loop = false;
-				Fireball();
+				fireball();
 				PlayerStats.MP -= 7;
 			}else if(response.equals("fireball") && PlayerStats.INT >= 4 && PlayerStats.MP < 7){
 			    loop = false;
 			    System.out.println("Insufficient mana!");
-			    CanCast();	
+			    canCast();	
 			}else if(response.equals("back")){
-				EnemyEncounter.Combat();
-			}else CanCast();
+				EnemyEncounter.combat();
+			}else canCast();
 		}
 		
 	}
