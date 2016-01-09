@@ -12,26 +12,39 @@ public class Dungeon {
 	public static void main(String[] args) {
 	    start();
 	    FirstRoom.main(null);
+	    generate();
+	    changeRoom();
+	    content();
 	    //temporary route directly to EnemyEncounter
 	    //EnemyEncounter.main(null);
 
 	    //loop until end of program
 	    while(true){
-	        Content();
+	        if(currentRoom.visited == false){
+	            content();
+	        //if the room has been visited before, it should remain empty
+	        }else{
+	            System.out.println("====================");
+    	    	System.out.println(currentRoom.description);
+    		    System.out.println("====================");
+    		    changeRoom();
+	        }
 	    }
     }
 
 	// create first room
 	public static void start() {
-	    playerRoom = currentRoom;
 		currentRoom.id = 0;
+		currentRoom.visited = true;
 		rooms[0] = currentRoom;
+	    playerRoom = currentRoom;
 	}
 	
 	// adds another room to the maze
 	public static void generate() {
 
       		// 1. create a room
+      		playerRoom.visited = true;
       		currentRoom = new Room();
       		numberOfRooms++;
 			currentRoom.id = numberOfRooms;
@@ -94,6 +107,8 @@ public class Dungeon {
     				break;
     			}	
     		}
+    		System.out.println(playerRoom.visited);
+    		System.out.println(currentRoom.visited);
     		System.out.println("====================");
     		System.out.println(currentRoom.description);
     		System.out.println("====================");
@@ -111,24 +126,28 @@ public class Dungeon {
             int id = currentRoom.canMoveNorth;
             System.out.println("Walking northward");
             currentRoom = rooms[id];
+            playerRoom = currentRoom;
         }
         else if(selectedRoom.equalsIgnoreCase("South") && currentRoom.canMoveSouth != -1)
         {
             int id = currentRoom.canMoveSouth;
             System.out.println("Walking southward");
             currentRoom = rooms[id];
+            playerRoom = currentRoom;
         }
         else if(selectedRoom.equalsIgnoreCase("East") && currentRoom.canMoveEast != -1)
         {
             int id = currentRoom.canMoveEast;
             System.out.println("Walking eastward");
             currentRoom = rooms[id];
+            playerRoom = currentRoom;
         }
         else if(selectedRoom.equalsIgnoreCase("West") && currentRoom.canMoveWest != -1)
         {
             int id = currentRoom.canMoveWest;
             System.out.println("Walking westward");
             currentRoom = rooms[id];
+            playerRoom = currentRoom;
         }
         else{
             System.out.println("====================");
@@ -136,24 +155,23 @@ public class Dungeon {
     		System.out.println("====================");
     		changeRoom();
         }
-        
 	}
 	//
 
-	public static void Content() {
+	public static void content() {
 		RNG.D100();
 		if (RNG.num <= 75) {
-			generate();
-			changeRoom();
 			EnemyEncounter.main(null);
+		    generate();
+			changeRoom();
 		} else if (RNG.num > 75 && RNG.num <= 90) {
-		    System.out.println("Doesn't seem to be anything special here");
+		    System.out.println("There doesn't seem to be anything special here");		    
 		    generate();
 			changeRoom();
 		} else if (RNG.num > 90 && RNG.num <= 100) {
+		    Loot.main(null);
 			generate();
 			changeRoom();
-			Loot.main(null);
 		}
 	}
 	//

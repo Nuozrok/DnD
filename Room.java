@@ -10,5 +10,6 @@ public class Room {
 	public static int canMoveWest = -1;
 	public static int stairCaseUp = -1;
 	public static boolean stairCaseDown;
+	public static boolean visited = false;
 
 }

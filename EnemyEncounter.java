@@ -46,102 +46,96 @@ public class EnemyEncounter {
 	//
 
 	// Combat
-	public static boolean combat;
 	public static int DMG;
-
 	public static void combat() {
-		combat = true;
-		while (combat = true) {
-			// player's move
-			if (init == 0) {
-				boolean loop1 = true;
-				while (loop1 == true) {
-					System.out.println("Your turn");
-					System.out.println("====================");
-					System.out.println("Attack or magic?");
-					System.out.println("====================");
-					String response = input.nextLine().toLowerCase();
-					if (response.equals("attack")) {
-						loop1 = false;
-						boolean loop2 = true;
-						while (loop2 == true) {
-							System.out.println("====================");
-							System.out.println("Roll to attack");
-							System.out.println("====================");
-							System.out.println("Back");
-							response = input.nextLine().toLowerCase();
-							if (response.equals("roll")) {
-								loop2 = false;
-								attack();
-								// if enemy dies
-								if (HP <= 0) {
-									System.out.println("You have slain the " + enemy + "!");
-									combat = false;
-									return;
-								}
-							} else if (response.equals("back")) {
-								combat();
-							}
-						}
-					} else if (response.equals("magic")) {
-						loop1 = false;
-						magic();
-						// if enemy dies
-						if (HP <= 0) {
-							System.out.println("You have slain the " + enemy + "!");
-							combat = false;
-							return;
-						}
-					}
-				}
-				init++;
-			}
-			// enemy's move
-			if (init == 1) {
-				System.out.println("It's the " + enemy + "'s turn");
-				RNG.D20();
-				if (RNG.num > 0.2*PlayerStats.AC) {
-					if (RNG.num == 20) {
-						System.out.println("The " + enemy + " rolls " + RNG.num);
-						System.out.println("Critical hit!");
-						DMG = STR + RNG.D4();
-						PlayerStats.HP = PlayerStats.HP - (DMG * 2);
-						System.out.println("The " + enemy + " rolls for damage");
-						System.out.println("The " + enemy + " rolls " + RNG.num);
-						System.out.println("The " + enemy + " deals " + (DMG * 2) + " damage");
-						System.out.println("You have " + PlayerStats.HP + "HP and " + PlayerStats.MP + " MP");
-						// if player dies
-						if (PlayerStats.HP <= 0) {
-							System.out.println("You have been slain!");
-							System.exit(0);
-						}
-					} else if (RNG.num == 1) {
-						System.out.println("The " + enemy + " rolls " + RNG.num);
-						System.out.println("Critical fail!");
-						System.out.println("The " + enemy + " misses!");
-					} else {
-						System.out.println("The " + enemy + " rolls " + RNG.num);
-						System.out.println("It hits!");
-						System.out.println("The " + enemy + " rolls for damage");
-						DMG = STR + RNG.D4();
-						System.out.println("The " + enemy + " rolls " + RNG.num);
-						PlayerStats.HP = PlayerStats.HP - DMG;
-						System.out.println("The " + enemy + " deals " + DMG + " damage");
-						System.out.println("You have " + PlayerStats.HP + "HP and " + PlayerStats.MP + " MP");
-						// if player dies
-						if (PlayerStats.HP <= 0) {
-							System.out.println("You have been slain!");
-							System.exit(0);
-						}
-					}
-				} else if (RNG.num <= 0.2*PlayerStats.AC) {
-					System.out.println("The " + enemy + " rolls " + RNG.num);
-					System.out.println("The " + enemy + " misses!");
-				}
-				init--;
-			}
+		while(true){
+    		// player's move
+    		if (init == 0) {
+    			boolean loop1 = true;
+    			while (loop1 == true) {
+    				System.out.println("Your turn");
+    				System.out.println("====================");
+    				System.out.println("Attack or magic?");
+    				System.out.println("====================");
+    				String response = input.nextLine().toLowerCase();
+    				if (response.equals("attack")) {
+    					loop1 = false;
+    					boolean loop2 = true;
+    					while (loop2 == true) {
+    						System.out.println("====================");
+    						System.out.println("Roll to attack");
+    						System.out.println("====================");
+    						System.out.println("Back");
+    						response = input.nextLine().toLowerCase();
+    						if (response.equals("roll")) {
+    							loop2 = false;
+    							attack();
+    							// if enemy dies
+    							if (HP <= 0) {
+    								System.out.println("You have slain the " + enemy + "!");
+    								return;
+    							}
+    						} else if (response.equals("back")) {
+    							combat();
+    						}
+    					}
+    				} else if (response.equals("magic")) {
+    					loop1 = false;
+    					magic();
+    					// if enemy dies
+    					if (HP <= 0) {
+    						System.out.println("You have slain the " + enemy + "!");
+    						return;
+    					}
+    				}
+    			}
+    			init++;
+    		}
+    		// enemy's move
+    		if (init == 1) {
+    			System.out.println("It's the " + enemy + "'s turn");
+    			RNG.D20();
+    			if (RNG.num > 0.2*PlayerStats.AC) {
+    				if (RNG.num == 20) {
+    					System.out.println("The " + enemy + " rolls " + RNG.num);
+    					System.out.println("Critical hit!");
+    					DMG = STR + RNG.D4();
+    					PlayerStats.HP = PlayerStats.HP - (DMG * 2);
+    					System.out.println("The " + enemy + " rolls for damage");
+    					System.out.println("The " + enemy + " rolls " + RNG.num);
+    					System.out.println("The " + enemy + " deals " + (DMG * 2) + " damage");
+    					System.out.println("You have " + PlayerStats.HP + "HP and " + PlayerStats.MP + " MP");
+    					// if player dies
+    					if (PlayerStats.HP <= 0) {
+    						System.out.println("You have been slain!");
+    						System.exit(0);
+    					}
+    				} else if (RNG.num == 1) {
+    					System.out.println("The " + enemy + " rolls " + RNG.num);
+    					System.out.println("Critical fail!");
+    					System.out.println("The " + enemy + " misses!");
+    				} else {
+    					System.out.println("The " + enemy + " rolls " + RNG.num);
+    					System.out.println("It hits!");
+    					System.out.println("The " + enemy + " rolls for damage");
+    					DMG = STR + RNG.D4();
+    					System.out.println("The " + enemy + " rolls " + RNG.num);
+    					PlayerStats.HP = PlayerStats.HP - DMG;
+    					System.out.println("The " + enemy + " deals " + DMG + " damage");
+    					System.out.println("You have " + PlayerStats.HP + "HP and " + PlayerStats.MP + " MP");
+    					// if player dies
+    					if (PlayerStats.HP <= 0) {
+    						System.out.println("You have been slain!");
+    						System.exit(0);
+    					}
+    				}
+    			} else if (RNG.num <= 0.2*PlayerStats.AC) {
+    				System.out.println("The " + enemy + " rolls " + RNG.num);
+    				System.out.println("The " + enemy + " misses!");
+    			}
+    			init--;
+    		}
 		}
-		return;
 	}
 
 	public static void attack() {
@@ -195,8 +189,8 @@ public class EnemyEncounter {
 	public static void magic() {
 		System.out.println("You have " +PlayerStats.MP+ "/" +PlayerStats.totalMP+" MP");
 		System.out.println("What would you like to cast?");
-		Spells.CanCast();
-		Spells.Casting();
+		Spells.canCast();
+		Spells.casting();
 	}
 	//
 
