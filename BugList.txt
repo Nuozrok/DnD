@@ -1,0 +1,3 @@
+Doors for some reason are only created N+S+E+W or N+S or E+W. Should be able to have a N+W for example, or a N+S+E.
+Currently unable to go back to the previous room without resetting interactions.
+Sometimes winning in EnemyEncounter will close the program.

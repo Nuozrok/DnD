@@ -14,13 +14,12 @@ public class Dungeon {
 	    FirstRoom.main(null);
 	    generate();
 	    changeRoom();
-	    content();
 	    //temporary route directly to EnemyEncounter
 	    //EnemyEncounter.main(null);
 
 	    //loop until end of program
 	    while(true){
-	        if(currentRoom.visited == false){
+	        if(playerRoom.visited == false){
 	            content();
 	        //if the room has been visited before, it should remain empty
 	        }else{
@@ -44,10 +43,12 @@ public class Dungeon {
 	public static void generate() {
 
       		// 1. create a room
-      		playerRoom.visited = true;
+      		currentRoom.visited = true;
       		currentRoom = new Room();
+      		currentRoom.visited = false;
       		numberOfRooms++;
 			currentRoom.id = numberOfRooms;
+			playerRoom = currentRoom;
             // which direction will the door be (don't forget to check that door isn't already there)
 
         	// 4. randomly add a door to the wall
@@ -107,8 +108,6 @@ public class Dungeon {
     				break;
     			}	
     		}
-    		System.out.println(playerRoom.visited);
-    		System.out.println(currentRoom.visited);
     		System.out.println("====================");
     		System.out.println(currentRoom.description);
     		System.out.println("====================");
